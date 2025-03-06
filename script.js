@@ -2,9 +2,6 @@
 
 //Komponen ChartPage
 import { Navbar } from './components/chart-section/Navbar.js';
-import { Chart } from './components/chart-section/Chart.js';
-import { PinTodo } from './components/chart-section/PinTodo.js';
-import { TodoList } from './components/chart-section/Todo.js';
 
 // Komponen Landing
 import { NavbarLanding } from './components/landing-section/Navbar-landing.js';
