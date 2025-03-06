@@ -1,0 +1,16 @@
+.pin-todo {
+    width: 300px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-dark);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
