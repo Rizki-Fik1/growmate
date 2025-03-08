@@ -1,6 +1,6 @@
 export const About = () => {
     return `
-        <div class="about-container">
+        <div class="about-container" id="about">
             <div class="about-left-section">
                 <h1 class="about-title">Kenapa harus pakai <span>GrowMate?</span></h1>
                 <p class="about-description">Growmate dirancang untuk membantu berbagai macam aktivitas Anda, seperti untuk membangun relasi, mengasah skill, dan meningkatkan kreativitas.</p>

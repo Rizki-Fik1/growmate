@@ -1,0 +1,172 @@
+.daftar-todo-list {
+    width: 90%; /* Gunakan lebar penuh dalam grid cell */
+    height: 100%; /* Gunakan tinggi penuh dalam grid cell */
+    min-height: 650px;
+    background-color: #1e293b;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch; /* Meregang untuk mengisi grid cell */
+    grid-column: 2; /* Tempat di kolom kedua dari grid */
+    grid-row: 1; /* Pastikan berada di baris pertama */
+    overflow-y: auto;
+}
+
+.daftar-todo-header h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.daftar-todo-header p {
+    font-size: 14px;
+    color: #90a4ae;
+    margin-bottom: 20px;
+}
+
+.daftar-todo-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    position: relative;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #90a4ae;
+    cursor: pointer;
+}
+
+.add-todo-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00c853;
+    color: #ffffff;
+    border: none;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filter-icon {
+    margin-right: 5px;
+}
+
+.todo-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.todo-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    color: #90a4ae;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+.todo-tab.active {
+    color: #ffffff;
+}
+
+.todo-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00c853;
+}
+
+.time-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.time-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #00c853;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.sun-icon {
+    margin-right: 10px;
+}
+
+.time-label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.time-count {
+    background-color: rgba(0, 200, 83, 0.2);
+    color: #00c853;
+    border-radius: 12px;
+    padding: 3px 8px;
+    font-size: 12px;
+}
+
+.time-range {
+    color: #90a4ae;
+    font-size: 14px;
+}
+
+.expand-button {
+    background: none;
+    border: none;
+    color: #90a4ae;
+    cursor: pointer;
+    font-size: 12px;
+}

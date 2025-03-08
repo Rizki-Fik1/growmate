@@ -6,25 +6,19 @@
     align-items: center;
     padding: 20px 0;
     height: 100vh;
+    position: fixed; /* Membuat navbar tetap di tempat */
+    left: 0;
+    top: 0;
+    z-index: 1000; /* Memastikan navbar berada di atas konten lain */
 }
 
 .nav-back {
-    width: 50px;
-    height: 50px;
-    background-color: var(--card-bg);
-    border-radius: 10px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white; /* Default color */
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.nav-back:hover {
-    background-color: var(--green-primary);
-    color: #5CE6A4; /* Hover color */
 }
 
 .nav-item {
@@ -41,8 +35,8 @@
 }
 
 .nav-item.active {
-    background-color: var(--green-primary);
-    color: var(--bg-dark);
+    background-color: #202E41;
+    color: #5CE6A4;
 }
 
 .nav-item:hover {

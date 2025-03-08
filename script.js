@@ -1,9 +1,4 @@
-//Komponen HomePage
-
-//Komponen ChartPage
 import { Navbar } from './components/chart-section/Navbar.js';
-
-// Komponen Landing
 import { NavbarLanding } from './components/landing-section/Navbar-landing.js';
 import { HeroSection } from './components/landing-section/Hero.js';
 import { Partners } from './components/landing-section/Partners.js';
@@ -12,55 +7,70 @@ import { About } from './components/landing-section/About.js';
 import { FAQ } from './components/landing-section/Faq.js';
 import { CallToAction } from './components/landing-section/CTA.js';
 import { Footer } from './components/landing-section/Footer.js';
+import { MateChart } from './pages/MateChart.js';
 
-const home = document.getElementById('home-page');
-const chart = document.getElementById('chart-page');
-const landing = document.getElementById('landing');
-
-// Render komponen
-landing.innerHTML = `
-    <div id="current-page">
-        ${NavbarLanding()}
-        <div class="landing-page">
-            ${HeroSection()}
-            ${Partners()}
-            ${Timeline()}
-            ${About()}
-            ${FAQ()}
-            ${CallToAction()}
-            ${Footer()}
-        </div>
-    </div>
-`;
-
-chart.innerHTML = `
-        ${Navbar()}
-        <div class="chart-page">
-        </div>
-`;
-
-// Tambahkan event listener atau logika JavaScript lainnya di sini
-function showPage(pageId) {
-    // Daftar semua halaman yang mungkin
-    const pages = ['landing', 'chart-page', 'home-page'];
-    
-    // Loop through all possible pages
-    pages.forEach(page => {
-        const pageElement = document.getElementById(page);
-        if (pageElement) {
-            pageElement.style.display = page === pageId ? 'block' : 'none';
-        } else {
-            console.warn(`Halaman dengan ID ${page} tidak ditemukan`);
-        }
-    });
+// Fungsi untuk merender halaman landing
+function renderLanding() {
+    const landing = document.getElementById('landing');
+    if (landing) {
+        landing.innerHTML = `
+            <div id="current-page">
+                ${NavbarLanding()}
+                <div class="landing-page">
+                    ${HeroSection()}
+                    ${Partners()}
+                    ${Timeline()}
+                    ${About()}
+                    ${FAQ()}
+                    ${CallToAction()}
+                    ${Footer()}
+                </div>
+            </div>
+        `;
+    }
 }
 
-// Tambahkan event listener atau logika JavaScript lainnya di sini
-document.addEventListener('DOMContentLoaded', () => {
-    // Tampilkan halaman landing sebagai default
-    showPage('landing');
+// Fungsi untuk merender halaman chart
+function renderChart() {
+    const chart = document.getElementById('chart-page');
+    if (chart) {
+        chart.innerHTML = `
+            ${Navbar()}
+            <div class="chart-page">
+                ${MateChart()}
+            </div>
+        `;
+    }
+}
 
-    // Animasi fade-in (kode sebelumnya)
+// Fungsi untuk menangani navigasi
+function handleNavigation(event) {
+    const path = event.currentTarget.getAttribute('data-path');
+    if (path) {
+        window.location.href = path; // Navigasi ke halaman yang sesuai
+    }
+}
+
+// Fungsi untuk menambahkan event listener
+function addEventListeners() {
+    // Event listener untuk .nav-item
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', handleNavigation);
+    });
+
+    // Event listener untuk tombol di HeroSection
+    const exploreButton = document.querySelector('.hero-section .explore');
+    const getStartedButton = document.querySelector('.hero-section .get-started');
+
+    if (exploreButton) {
+        exploreButton.addEventListener('click', handleNavigation);
+    }
+    if (getStartedButton) {
+        getStartedButton.addEventListener('click', handleNavigation);
+    }
+
+    // Animasi fade-in
     const animatedElements = document.querySelectorAll('.hero-section h1, .hero-section p, .hero-section .buttons');
     animatedElements.forEach((element, index) => {
         element.style.opacity = '0';
@@ -72,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300 * index);
     });
 
-    // Hover effect untuk tombol (kode sebelumnya)
+    // Hover effect untuk tombol
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
         button.addEventListener('mouseover', () => {
@@ -82,25 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             button.style.transform = 'scale(1)';
         });
     });
-
-    // Tambahkan event listener untuk navigasi
-    const getStartedButton = document.querySelector('.get-started');
-    if (getStartedButton) {
-        getStartedButton.addEventListener('click', () => {
-            showPage('chart-page');
-        });
-    }
-
-    const exploreButton = document.querySelector('.explore');
-    if (exploreButton) {
-        exploreButton.addEventListener('click', () => {
-            // Misalnya, bisa navigasi ke halaman fitur atau scroll ke section fitur
-            window.scrollTo({
-                top: document.querySelector('.timeline-section').offsetTop,
-                behavior: 'smooth'
-            });
-        });
-    }
 
     // Event listener untuk navigasi di navbar
     const navLinks = document.querySelectorAll('nav a');
@@ -132,4 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
+
+// Jalankan fungsi setelah DOM selesai dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    // Render halaman berdasarkan URL
+    if (window.location.pathname === '/chart.html') {
+        renderChart();
+    } else {
+        renderLanding();
+    }
+    // Tambahkan event listener
+    addEventListeners();
 });

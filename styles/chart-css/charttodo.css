@@ -1,0 +1,84 @@
+.chart-todo-list {
+    width: 50%;
+    height: 100%;
+    min-height: 650px;
+    background-color: #1e293b;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    grid-column: 1; /* Tempat di kolom pertama dari grid */
+    grid-row: 1; /* Pastikan berada di baris pertama */
+    align-self: stretch;
+}
+
+.chart-header h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.chart-header p {
+    font-size: 14px;
+    color: #90a4ae;
+    margin-bottom: 20px;
+}
+
+.chart-period-selection {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.period-button {
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #90a4ae;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.period-button.active {
+    background-color: #00c853;
+    color: #ffffff;
+}
+
+.chart-container {
+    display: flex;
+    height: 300px;
+    position: relative;
+}
+
+.chart-y-axis {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.y-label {
+    color: #90a4ae;
+    font-size: 12px;
+}
+
+.chart-content {
+    flex: 1;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    height: calc(100% - 20px);
+}
+
+.chart-x-axis {
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.x-label {
+    color: #90a4ae;
+    font-size: 12px;
+}

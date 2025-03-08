@@ -1,7 +1,7 @@
 export const Timeline = () => {
     return `
         <div class="timeline-container">
-            <section class="intro">
+            <section class="features" id="features">
                 <h1>Fitur-fitur Unggulan</h1>
                 <h2 class="text-green">GrowMate</h2>
                 <p>Tinggalkan cara belajar lama! GrowMate adalah solusi <br> edukasi dan self-improvement yang fresh <br> dan inovatif.</p>
