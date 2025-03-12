@@ -8,6 +8,8 @@ import { FAQ } from './components/landing-section/Faq.js';
 import { CallToAction } from './components/landing-section/CTA.js';
 import { Footer } from './components/landing-section/Footer.js';
 import { MateChart } from './pages/MateChart.js';
+import { MateForum } from './pages/MateForum.js';
+import { ForumContent, initForumContentEvents } from './components/forum-section/ForumContent.js';
 
 // Fungsi untuk merender halaman landing
 function renderLanding() {
@@ -35,11 +37,36 @@ function renderChart() {
     const chart = document.getElementById('chart-page');
     if (chart) {
         chart.innerHTML = `
-            ${Navbar()}
+            ${Navbar('chart.html')}
             <div class="chart-page">
                 ${MateChart()}
             </div>
         `;
+    }
+}
+
+// Fungsi untuk merender halaman forum
+function renderForum() {
+    const forum = document.getElementById('forum-page');
+    if (forum) {
+        forum.innerHTML = MateForum();
+        
+        // Initialize forum content events
+        setTimeout(() => {
+            initForumContentEvents();
+        }, 100);
+    }
+}
+
+function renderQuestionForum() {
+    const forum = document.getElementById('forum-question-page');
+    if (forum) {
+        forum.innerHTML = MateForum();
+        
+        // Initialize forum content events
+        setTimeout(() => {
+            initForumContentEvents();
+        }, 100);
     }
 }
 
@@ -128,11 +155,16 @@ function addEventListeners() {
 // Jalankan fungsi setelah DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
     // Render halaman berdasarkan URL
-    if (window.location.pathname === '/chart.html') {
+    const currentPath = window.location.pathname;
+    
+    if (currentPath.endsWith('chart.html')) {
         renderChart();
+    } else if (currentPath.endsWith('forum.html')) {
+        renderForum();
     } else {
         renderLanding();
     }
+    
     // Tambahkan event listener
     addEventListeners();
 });

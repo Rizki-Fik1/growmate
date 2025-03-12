@@ -1,109 +1,133 @@
-.hasil-todo-card {
-    background-color: #1e2430;
-    border-radius: 8px;
-    padding: 12 px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
-.hasil-todo-card h3 {
-    font-size: 22px;
-    margin-bottom: 5px;
-    color: #ffffff;
-}
-
-.hasil-todo-card p {
-    font-size: 14px;
-    color: #90a4ae;
-    margin-bottom: 20px;
-}
-
-.speedometer-container {
+.time-range {
     display: flex;
-    flex-direction: column;
+    gap: 8px; /* Jarak antara kotak */
     align-items: center;
-    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
-.speedometer {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    overflow: hidden;
-    margin-bottom: 30px;
+.time-select-box-2 {
+    flex-grow: 1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: #182230;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.speedometer-scale {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 15px solid transparent;
-    border-bottom-color: #00c853;
-    border-right-color: #00c853;
-    border-left-color: #0288d1;
-    transform: rotate(45deg);
-}
-
-.speedometer-center {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background-color: #121824;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-.speedometer-needle {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform-origin: bottom center;
-    transform: translateX(-50%) rotate(-45deg);
-    width: 4px;
-    height: 90px;
-    background-color: #ff1744;
-    z-index: 1;
-}
-
-.speedometer-results {
+.dropdown-icon-box-2 {
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: #182230;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 40px; /* Lebar tetap untuk kotak icon */
+    cursor: pointer;
 }
 
-.result-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 20px;
+.card {
+    background: #182230;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.result-divider {
-    width: 1px;
-    height: 50px;
-    background-color: #90a4ae;
+.card-header {
+    margin-bottom: 32px;
 }
 
-.result-label {
+.card-title {
+    color: #FFFFFF;
+    margin: 0;
+    font-size: 20px;
+}
+
+.card-subtitle {
+    color: #6B7A90;
+    margin: 8px 0 0;
     font-size: 14px;
-    margin-bottom: 10px;
 }
 
-.result-label.selesai {
-    color: #00c853;
+.progress-container {
+    position: relative;
+    margin: 40px 0;
 }
 
-.result-label.terlawat {
-    color: #0288d1;
+.progress-meter {
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 }
 
-.result-number {
-    font-size: 28px;
-    font-weight: 600;
+.meter {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transform: rotate(135deg);
+}
+
+.progress-fill {
+    width: 100%;
+    height: 100%;
+    border: 20px solid;
+    border-color: #00C853 #00C853 #1A2A3A #1A2A3A;
+    border-radius: 50%;
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 32px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: #6B7A90;
+    font-size: 14px;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.completed .stat-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #00C853;
+}
+
+.late .stat-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #2196F3;
+}
+
+.stat-separator {
+    width: 1px;
+    background: #2A3847;
+    margin: 0 20px;
 }

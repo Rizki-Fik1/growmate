@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mate News - AI Scanning</title>
+    <link rel="stylesheet" href="styles/news-css/main.css">
+    <link rel="stylesheet" href="/styles/news.css">
+    <link rel="stylesheet" href="styles/chart-css/navbar.css">
+    <link rel="stylesheet" href="styles/news-css/header.css">
+    <link rel="stylesheet" href="styles/news-css/scanning.css">
+    <style>
+        .article-text {
+            color: #fff !important;
+            overflow-y: auto !important;
+            max-height: 400px !important;
+            display: block !important;
+        }
+        .article-text h3, .article-text h4 {
+            color: #fff !important;
+        }
+        .article-text p {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { AiScanning } from './pages/AiScanning.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = document.getElementById('app');
+            app.innerHTML = AiScanning();
+        });
+    </script>
+    <script src="./scripts/navigation.js"></script>
+</body>
+</html>

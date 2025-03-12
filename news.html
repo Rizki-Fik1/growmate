@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mate News - Articles</title>
+    <link rel="stylesheet" href="/styles/news.css">
+    <link rel="stylesheet" href="styles/chart-css/navbar.css">
+    <link rel="stylesheet" href="styles/news-css/header.css">
+    <link rel="stylesheet" href="styles/news-css/search.css">
+    <link rel="stylesheet" href="styles/news-css/featured.css">
+    <link rel="stylesheet" href="styles/news-css/popular.css">
+    <link rel="stylesheet" href="styles/news-css/detail.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { MateNews } from './pages/MateNews.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = document.getElementById('app');
+            app.innerHTML = MateNews();
+        });
+    </script>
+    <script src="./scripts/navigation.js"></script>
+</body>
+</html>

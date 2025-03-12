@@ -1,172 +1,200 @@
-.daftar-todo-list {
-    width: 90%; /* Gunakan lebar penuh dalam grid cell */
-    height: 100%; /* Gunakan tinggi penuh dalam grid cell */
-    min-height: 650px;
-    background-color: #1e293b;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Daftar Todo Styles */
+.daftar-todo {
+    width: 650px;
+    height: 100%;
+    grid-row: span 2;
     padding: 20px;
+    background-color: #0C1623;;
+    color: white;
+    border-radius: 8px;
+}
+
+.header-container {
     display: flex;
-    flex-direction: column;
-    align-self: stretch; /* Meregang untuk mengisi grid cell */
-    grid-column: 2; /* Tempat di kolom kedua dari grid */
-    grid-row: 1; /* Pastikan berada di baris pertama */
-    overflow-y: auto;
-}
-
-.daftar-todo-header h3 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-
-.daftar-todo-header p {
-    font-size: 14px;
-    color: #90a4ae;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 20px;
 }
 
-.daftar-todo-actions {
+.title-section {
+    flex: 1;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 24px;
+}
+
+.card-subtitle {
+    margin: 5px 0 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.search-container {
+    display: flex;
+    max-width: 300px;
+    width: 100%;
+}
+
+.search-box {
+    background-color: #2a3038;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.search-input {
+    background-color: #2a3038;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    width: 100%;
+    padding: 8px 12px;
+}
+
+.search-button {
+    border-radius: 5px;
+    border: none;
+    background: #00B86C;
+    margin-left: 5px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 40px;
+}
+
+.navigation-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.search-container {
-    position: relative;
-    flex: 1;
-    margin-right: 10px;
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #333;
 }
 
-.search-input {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #ffffff;
-}
-
-.search-button {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #90a4ae;
+.tab {
+    padding: 10px 20px;
     cursor: pointer;
+    font-size: 16px;
+    color: #ccc;
 }
 
-.add-todo-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #00c853;
-    color: #ffffff;
-    border: none;
-    font-size: 24px;
+.tab.active {
+    color: white;
+    border-bottom: 5px solid #00B86C;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    height: 36px;
+    border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-right: 10px;
+    padding: 0 12px;
 }
 
-.filter-button {
+.btn-green {
+    background-color: #00B86C;
+    width: 46px;
+    padding: 0;
+}
+
+.btn-filter {
+    background-color: #00B86C;
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #ffffff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
 }
 
 .filter-icon {
     margin-right: 5px;
 }
 
-.todo-tabs {
+/* Time blocks */
+.time-blocks {
     display: flex;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-.todo-tab {
-    padding: 10px 20px;
-    background: none;
-    border: none;
-    color: #90a4ae;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-}
-
-.todo-tab.active {
-    color: #ffffff;
-}
-
-.todo-tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #00c853;
-}
-
-.time-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.time-indicator {
+.time-block-container {
     display: flex;
     align-items: center;
 }
 
-.time-checkbox {
-    width: 18px;
-    height: 18px;
+.checkbox-container {
+    padding-right: 15px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    border: 2px solid #00c853;
-    margin-right: 10px;
+    border: 2px solid #00FF95;
     cursor: pointer;
 }
 
-.sun-icon {
-    margin-right: 10px;
+.time-block-box {
+    flex: 1;
+    background-color: #030C19;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.time-label {
-    font-size: 16px;
-    margin-right: 10px;
+.time-block-content {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
 }
 
-.time-count {
-    background-color: rgba(0, 200, 83, 0.2);
+.time-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #00c853;
-    border-radius: 12px;
+    margin-right: 15px;
+}
+
+.time-name {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.time-tag {
+    background-color: rgba(0, 184, 108, 0.20);
+    color: white;
     padding: 3px 8px;
-    font-size: 12px;
+    border-radius: 50px;
+    font-size: 15px;
+    margin-left: 10px;
 }
 
-.time-range {
-    color: #90a4ae;
-    font-size: 14px;
+.time-hours {
+    color: #ccc;
+    margin-right: 20px;
+    font-size: 16px;
 }
 
-.expand-button {
-    background: none;
-    border: none;
-    color: #90a4ae;
-    cursor: pointer;
-    font-size: 12px;
+.expand-icon {
+    color: #aaa;
 }

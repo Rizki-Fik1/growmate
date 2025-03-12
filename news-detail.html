@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mate News - Article Detail</title>
+    <link rel="stylesheet" href="/styles/news.css">
+    <link rel="stylesheet" href="styles/chart-css/navbar.css">
+    <link rel="stylesheet" href="styles/news-css/header.css">
+    <link rel="stylesheet" href="styles/news-css/detail.css">
+    <link rel="stylesheet" href="styles/news-css/comment.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { NewsDetail } from './pages/NewsDetail.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = document.getElementById('app');
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            app.innerHTML = NewsDetail(articleId);
+        });
+    </script>
+    <script src="./scripts/navigation.js"></script>
+</body>
+</html> 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mate News - Buat Artikel</title>
+    <link rel="stylesheet" href="/styles/news.css">
+    <link rel="stylesheet" href="styles/chart-css/navbar.css">
+    <link rel="stylesheet" href="styles/news-css/header.css">
+    <link rel="stylesheet" href="styles/news-css/create-article.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { CreateArticle } from './pages/CreateArticle.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = document.getElementById('app');
+            app.innerHTML = CreateArticle();
+        });
+    </script>
+    <script src="./scripts/navigation.js"></script>
+</body>
+</html> 

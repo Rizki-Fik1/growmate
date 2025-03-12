@@ -1,0 +1,100 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #030C19;
+    color: white;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-left: 90px; 
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold
+}
+
+.logo span {
+    color: #00FF95;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1c2128;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        margin-left: 60px; /* Sesuai dengan lebar navbar di tablet */
+        padding: 15px;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin-left: 50px; /* Sesuai dengan lebar navbar di mobile */
+        padding: 10px;
+    }
+    
+    .card-title {
+        font-size: 18px;
+    }
+    
+    .card-subtitle {
+        font-size: 13px;
+    }
+}
