@@ -1,32 +1,56 @@
 export const SideRight = () => {
+    // Fungsi untuk menghandle filter dropdown
+    const setupFilterDropdown = () => {
+        const filterButton = document.querySelector('.filter-time-button');
+        const filterDropdown = document.querySelector('.filter-time-dropdown');
+        
+        if (filterButton && filterDropdown) {
+            // Toggle dropdown when button is clicked
+            filterButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                filterDropdown.classList.toggle('show');
+                filterButton.classList.toggle('active');
+            });
+            
+            // Handle filter option selection
+            const filterOptions = document.querySelectorAll('.filter-time-option');
+            filterOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Update button text with selected option
+                    const selectedText = option.textContent;
+                    filterButton.querySelector('span').textContent = selectedText;
+                    
+                    // Hide dropdown
+                    filterDropdown.classList.remove('show');
+                    filterButton.classList.remove('active');
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                filterDropdown.classList.remove('show');
+                filterButton.classList.remove('active');
+            });
+        }
+    };
+    
+    // Call setup function after DOM is loaded
+    setTimeout(() => {
+        setupFilterDropdown();
+    }, 100);
+    
     return `
-        <div class="top-discussions content-card">
-            <h3>Top 3 diskusi minggu ini</h3>
-            <div class="discussion-item">
-                <p>Bagaimana tanggapan kalian tentang para warga yang menggunakan jalan memutar...</p>
-                <div class="selengkapnya">Selengkapnya</div>
-            </div>
-            <div class="discussion-item">
-                <p>Bagaimana caranya agar dapat mempelajari segala sesuatu dengan cepat...</p>
-                <div class="selengkapnya">Selengkapnya</div>
-            </div>
-            <div class="discussion-item">
-                <p>Apa pengalaman paling tak terlupakan kamu saat main-main ke bangku SMA...</p>
-                <div class="selengkapnya">Selengkapnya</div>
-            </div>
-
-            <h3 class="mt-4">Rekomendasi Topik</h3>
-            <div class="topic-tags">
-                <span class="topic-tag active">Olahraga</span>
-                <span class="topic-tag">Permohonan Dasar</span>
-                <span class="topic-tag">Kesehatan</span>
-                <span class="topic-tag">Olahraga</span>
-                <span class="topic-tag">Kesehatan</span>
-                <span class="topic-tag">Permohonan Dasar</span>
-                <span class="topic-tag">Olahraga</span>
-            </div>
-            <div class="mt-3">
-                <a href="#" class="text-green">Lihat lebih banyak topik</a>
+        <div class="filter-container">
+            <div class="filter-time">
+                <button class="filter-time-button">
+                    <span>Pilih rentang waktu</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="filter-time-dropdown">
+                    <div class="filter-time-option">1 Hari yang lalu</div>
+                    <div class="filter-time-option">7 Hari yang lalu</div>
+                    <div class="filter-time-option">1 Minggu lalu</div>
+                </div>
             </div>
         </div>
     `;

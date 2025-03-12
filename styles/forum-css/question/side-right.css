@@ -1,5 +1,5 @@
 /* Top discussions styles */
-.top-discussions {
+/* .top-discussions {
     margin-left: 25px;
     width: 320px;
     height: 100%;
@@ -8,7 +8,94 @@
 .top-discussions h3 {
     margin-top: 0;
     margin-bottom: 15px;
+} */
+
+/* Discussions header with filter */
+/* .discussions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
+
+.discussions-header h3 {
+    margin: 0;
+} */
+
+/* Filter container */
+.filter-container {
+    margin-left: 25px;
+    width: 220px;
+}
+
+/* Filter time dropdown */
+.filter-time {
+    position: relative;
+    z-index: 10;
+}
+
+.filter-time-button {
+    background-color: #00FF95;
+    color: #030C19;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.filter-time-button:hover {
+    background-color: #00E085;
+}
+
+.filter-time-button.active {
+    border-radius: 8px 8px 0 0;
+}
+
+.filter-time-button i {
+    margin-left: 8px;
+    transition: transform 0.2s;
+}
+
+.filter-time-button.active i {
+    transform: rotate(180deg);
+}
+
+.filter-time-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #0F1A2A;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.filter-time-dropdown.show {
+    display: block;
+}
+
+.filter-time-option {
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.filter-time-option:hover {
+    background-color: #1A2A3A;
+}
+
+/* 
+The following styles are no longer used and have been commented out:
 
 .discussion-item {
     margin-bottom: 15px;
@@ -43,4 +130,18 @@
 .topic-tag.active {
     background-color: #00FF95;
     color: #030C19;
-} 
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.text-green {
+    color: #00FF95;
+    text-decoration: none;
+}
+*/ 

@@ -1,4 +1,4 @@
-export const ForumQuestion = () => {
+export const ForumAnswers = () => {
     // Fungsi untuk menghandle tampilan popup dan tab switching
     const setupPopupEvents = () => {
         // Mendapatkan elemen-elemen yang dibutuhkan
@@ -65,39 +65,39 @@ export const ForumQuestion = () => {
         setupPopupEvents();
     }, 100);
 
-    // Fungsi untuk menghandle interaksi dengan tombol jawab dan simpan
+    // Fungsi untuk menghandle interaksi dengan tombol edit dan simpan
     const setupButtonEvents = () => {
-        // Mendapatkan semua tombol jawab dan simpan
-        const jawabButtons = document.querySelectorAll('.jawab-btn');
+        // Mendapatkan semua tombol edit dan simpan
+        const editButtons = document.querySelectorAll('.jawab-btn');
         const simpanButtons = document.querySelectorAll('.simpan-btn');
         const answerPopup = document.getElementById('popup-answer');
         const answerCloseButton = document.querySelector('#popup-answer .popup-close');
         const answerSendButton = document.querySelector('#popup-answer .send-button');
         const notificationPopup = document.getElementById('notification-popup');
         
-        // Event listener untuk tombol jawab
-        jawabButtons.forEach(button => {
+        // Event listener untuk tombol edit
+        editButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Tampilkan popup jawaban
+                // Tampilkan popup edit jawaban
                 answerPopup.style.display = 'flex';
                 // Focus pada textarea
                 document.querySelector('#popup-answer .answer-input').focus();
             });
         });
         
-        // Event listener untuk tombol close pada popup jawaban
+        // Event listener untuk tombol close pada popup edit
         if (answerCloseButton) {
             answerCloseButton.addEventListener('click', () => {
                 answerPopup.style.display = 'none';
             });
         }
         
-        // Event listener untuk tombol kirim pada popup jawaban
+        // Event listener untuk tombol simpan perubahan pada popup edit
         if (answerSendButton) {
             answerSendButton.addEventListener('click', () => {
                 const answerText = document.querySelector('#popup-answer .answer-input').value;
                 if (answerText.trim() !== '') {
-                    alert('Jawaban berhasil dikirim: ' + answerText);
+                    alert('Perubahan berhasil disimpan: ' + answerText);
                     document.querySelector('#popup-answer .answer-input').value = '';
                     answerPopup.style.display = 'none';
                 } else {
@@ -106,7 +106,7 @@ export const ForumQuestion = () => {
             });
         }
         
-        // Tutup popup jawaban jika user mengklik area di luar popup
+        // Tutup popup edit jawaban jika user mengklik area di luar popup
         window.addEventListener('click', (e) => {
             if (e.target === answerPopup) {
                 answerPopup.style.display = 'none';
@@ -119,7 +119,7 @@ export const ForumQuestion = () => {
                 button.classList.toggle('saved');
                 
                 // Tampilkan notifikasi
-                notificationPopup.textContent = 'Pertanyaan sudah tersimpan';
+                notificationPopup.textContent = 'Jawaban sudah tersimpan';
                 notificationPopup.classList.add('show');
                 
                 // Sembunyikan notifikasi setelah 3 detik
@@ -463,4 +463,4 @@ export const ForumQuestion = () => {
             <div id="notification-popup" class="notification-popup"></div>
         </div>
     `;
-};
+}; 
