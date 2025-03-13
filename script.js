@@ -9,8 +9,6 @@ import { CallToAction } from './components/landing-section/CTA.js';
 import { Footer } from './components/landing-section/Footer.js';
 import { MateChart } from './pages/MateChart.js';
 import { MateForum } from './pages/MateForum.js';
-import { QuestionForum } from './pages/QuestionForum.js';
-import { AnswersForum } from './pages/AnswersForum.js';
 import { ForumContent, initForumContentEvents } from './components/forum-section/ForumContent.js';
 
 // Fungsi untuk merender halaman landing
@@ -63,14 +61,12 @@ function renderForum() {
 function renderQuestionForum() {
     const forum = document.getElementById('forum-question-page');
     if (forum) {
-        forum.innerHTML = QuestionForum();
-    }
-}
-
-function renderAnswersForum() {
-    const forum = document.getElementById('forum-answers-page');
-    if (forum) {
-        forum.innerHTML = AnswersForum();
+        forum.innerHTML = MateForum();
+        
+        // Initialize forum content events
+        setTimeout(() => {
+            initForumContentEvents();
+        }, 100);
     }
 }
 
@@ -165,10 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderChart();
     } else if (currentPath.endsWith('forum.html')) {
         renderForum();
-    } else if (currentPath.endsWith('question-forum.html')) {
-        renderQuestionForum();
-    } else if (currentPath.endsWith('answers-forum.html')) {
-        renderAnswersForum();
     } else {
         renderLanding();
     }

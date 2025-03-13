@@ -1,11 +1,11 @@
 import { Navbar } from '../components/chart-section/Navbar.js';
 import { NewsHeader } from '../components/news-section/NewsHeader.js';
-import { SearchBar } from '../components/forum-section/question/SearchBar.js';
-import { SidebarQuestion } from '../components/forum-section/question/SidebarQuestion.js';
-import { ForumAnswers } from '../components/forum-section/question/ForumAnswers.js';
+import { SearchBar } from '../components/forum-section/answer/SearchBar.js';
+import { SidebarAnswer } from '../components/forum-section/answer/SidebarAnswer.js';
+import { ForumAnswers } from '../components/forum-section/answer/ForumAnswer.js';
 import { SideRight } from '../components/forum-section/question/SideRight.js';
 
-export const AnswersForum = () => {
+export const AnswerForum = () => {
     const currentPath = window.location.pathname;
     
     return `
@@ -21,7 +21,7 @@ export const AnswersForum = () => {
 
             <div class="forum-layout">
                 <div class="left-sidebar">
-                    ${SidebarQuestion()}
+                    ${SidebarAnswer()}
                 </div>
                 
                 <div class="forum-main">

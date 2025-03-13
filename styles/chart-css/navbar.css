@@ -11,7 +11,8 @@
     left: 0;
     top: 0;
     z-index: 1000;
-    overflow-y: auto; /* Memungkinkan scroll jika konten terlalu panjang */
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 
 .nav-back {
@@ -34,6 +35,8 @@
     color: white; /* Default color */
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 1002; /* Ensure it's above the overlay */
 }
 
 .nav-item.active {
@@ -44,6 +47,11 @@
 .nav-item:hover {
     background-color: #202E41;
     color: #5CE6A4;
+    transform: scale(1.05);
+}
+
+.nav-item:active {
+    transform: scale(0.95);
 }
 
 .icon {
@@ -55,17 +63,133 @@
     color: var(--bg-dark);
 }
 
+/* Navbar toggle button */
+.navbar-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #00AF66 0%, #2AC182 100%);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-toggle:active {
+    transform: scale(0.95);
+}
+
+.navbar-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle span::before,
+.navbar-toggle span::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+    left: 0;
+}
+
+.navbar-toggle span::before {
+    transform: translateY(-8px);
+}
+
+.navbar-toggle span::after {
+    transform: translateY(8px);
+}
+
+/* Toggle button active state */
+.navbar-toggle.active span {
+    background-color: transparent;
+}
+
+.navbar-toggle.active span::before {
+    transform: rotate(45deg);
+}
+
+.navbar-toggle.active span::after {
+    transform: rotate(-45deg);
+}
+
+/* Overlay for mobile */
+.navbar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-overlay.active {
+    opacity: 1;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .navbar {
         width: 60px;
         padding: 15px 0;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar.active {
+        transform: translateX(0);
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    .navbar-overlay {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .navbar-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-item {
         width: 40px;
         height: 40px;
         margin-bottom: 10px;
+    }
+    
+    /* Adjust container margin when navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
     }
 }
 

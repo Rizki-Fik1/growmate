@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mate Forum Question</title>
+    <title>Mate Forum Answer</title>
     <link rel="stylesheet" href="/styles/forum-css/question/forum.css">
     <link rel="stylesheet" href="/styles/chart-css/navbar.css">
     <link rel="stylesheet" href="/styles/news-css/header.css">
     <link rel="stylesheet" href="/styles/forum-css/question/content-question.css">
     <link rel="stylesheet" href="/styles/forum-css/question/search-bar.css">
-    <link rel="stylesheet" href="/styles/forum-css/question/sidebar-question.css">
+    <link rel="stylesheet" href="/styles/forum-css/answer/sidebar-answer.css">
     <link rel="stylesheet" href="/styles/forum-css/question/side-right.css">
+    <link rel="stylesheet" href="/styles/forum-css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div id="app"></div>
 
     <script type="module">
-        import { AnswersForum } from './pages/AnswersForum.js ';
+        import { AnswerForum } from './pages/AnswerForum.js';
+        import { initSearchBarEvents } from './components/forum-section/answer/SearchBar.js';
+        import { initSidebarEvents } from './components/forum-section/answer/SidebarAnswer.js';
+        import { initForumAnswerEvents } from './components/forum-section/answer/ForumAnswer.js';
         
         document.addEventListener('DOMContentLoaded', () => {
             const app = document.getElementById('app');
-            app.innerHTML = AnswersForum();
+            app.innerHTML = AnswerForum();
+            
+            // Initialize responsive components
+            setTimeout(() => {
+                initSearchBarEvents();
+                initSidebarEvents();
+                initForumAnswerEvents();
+            }, 100);
         });
     </script>
     <script src="./scripts/navigation.js"></script>
 </body>
-</html> 
+</html>     

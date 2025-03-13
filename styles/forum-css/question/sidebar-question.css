@@ -8,7 +8,7 @@
 .sidebar-card {
     background-color: #0A1422;
     border-radius: 12px;
-    padding: 25px 20px;
+    padding: 15px;
     margin-bottom: 15px;
 }
 
@@ -49,17 +49,6 @@
     background-color: #1A2A3A;
 }
 
-/* Active state for sidebar menu item */
-.sidebar-menu-item.active {
-    background-color: #1A2A3A;
-    border-left: 3px solid #00FF95;
-}
-
-.sidebar-menu-item.active i,
-.sidebar-menu-item.active span {
-    color: #00FF95;
-}
-
 .sidebar-menu-item i {
     font-size: 18px;
     width: 24px;
@@ -81,16 +70,6 @@
     border-radius: 8px;
     padding: 8px;
     width: 450px;
-}
-
-/* Search bar */
-.search-bar {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 8px;
-    padding: 8px;
 }
 
 .search-bar input {

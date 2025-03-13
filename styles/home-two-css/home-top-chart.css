@@ -1,0 +1,44 @@
+.top-home-chart-section {
+  background-color: #0A1422;
+  width: 600px;
+  height: auto;
+  padding: 15px 25px;
+  border-radius: 20px;
+  margin: auto;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.top-home-chart-section canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 200px; /* Batasi tinggi chart */
+}
+
+
+.top-home-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Memberi jarak antara info dan chart */
+}
+
+.top-home-title-one {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.top-home-title-two {
+  font-size: 16px;
+  color: #AAA;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #00FFA1;
+}

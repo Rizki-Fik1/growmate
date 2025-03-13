@@ -47,4 +47,80 @@
 
 .search-btn:hover {
     background-color: #45a049;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    .search-container {
+        padding: 12px;
+        gap: 15px;
+    }
+    
+    .search-box input {
+        padding: 8px;
+        font-size: 13px;
+    }
+    
+    .search-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-section {
+        margin-bottom: 30px;
+    }
+    
+    .search-container {
+        padding: 10px;
+        gap: 12px;
+    }
+    
+    .profile-img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .search-container {
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .profile-img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .search-box {
+        gap: 6px;
+    }
+    
+    .search-box input {
+        padding: 6px;
+        font-size: 12px;
+    }
+    
+    .search-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-section {
+        margin-bottom: 20px;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
 } 

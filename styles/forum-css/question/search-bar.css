@@ -1,3 +1,8 @@
+.search-wrapper {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -14,7 +19,7 @@
     align-items: center;
     flex: 1;
     margin-right: 20px;
-    background-color: #151a23;
+    background-color: transparent;
     border-radius: 8px;
     padding: 8px 16px;
     border: 1px solid #2a2f37;
@@ -32,6 +37,7 @@
     color: #ffffff;
     font-size: 14px;
     padding: 8px 0;
+    width: 100%;
 }
 
 .search-input input::placeholder {
@@ -47,7 +53,7 @@
 .search-actions {
     display: flex;
     align-items: center;
-    background-color: #151a23;
+    background-color: transparent;
     border-radius: 8px;
     padding: 4px;
     border: 1px solid #2a2f37;

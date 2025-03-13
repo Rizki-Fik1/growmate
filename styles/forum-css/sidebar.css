@@ -15,14 +15,6 @@
 }
 
 /* Search bar */
-.search-bar {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 8px;
-    padding: 8px;
-}
 
 .search-bar input {
     background: transparent;

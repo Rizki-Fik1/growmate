@@ -24,9 +24,45 @@ export const NewsDetail = (articleId) => {
         `
     };
 
+    // Add event listener for responsive behavior after page load
+    setTimeout(() => {
+        const handleResize = () => {
+            const isMobile = window.innerWidth <= 768;
+            document.body.classList.toggle('mobile-view', isMobile);
+            
+            // Adjust scrollable containers height based on viewport
+            const articleText = document.querySelector('.article-text');
+            const commentsContainer = document.querySelector('.comments-container');
+            
+            if (articleText && commentsContainer) {
+                const viewportHeight = window.innerHeight;
+                if (isMobile) {
+                    articleText.style.maxHeight = `${viewportHeight * 0.4}px`;
+                    commentsContainer.style.maxHeight = `${viewportHeight * 0.35}px`;
+                } else {
+                    articleText.style.maxHeight = `${viewportHeight * 0.6}px`;
+                    commentsContainer.style.maxHeight = `${viewportHeight * 0.5}px`;
+                }
+            }
+        };
+        
+        // Initial call and add resize listener
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        
+        // Add smooth scrolling for back button
+        const backButton = document.querySelector('.back-button');
+        if (backButton) {
+            backButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.history.back();
+            });
+        }
+    }, 100);
+
     return `
         ${Navbar(window.location.pathname)}
-        <div class="container">
+        <div class="container responsive-container">
             ${NewsHeader()}
             ${ArticleDetail(article)}
         </div>

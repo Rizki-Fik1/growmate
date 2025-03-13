@@ -14,7 +14,7 @@ export const ArticleDetail = (article) => {
                         </linearGradient>
                     </defs>
                 </svg>
-                Kembali
+                <span class="back-text">Kembali</span>
             </button>
             <div class="article-header">
                 <h1>${article.title}</h1>
@@ -26,7 +26,9 @@ export const ArticleDetail = (article) => {
             </div>
             
             <div class="article-content">
-                <img src="../../assets/img/pizza.png" alt="Pizza" class="article-main-image">
+                <div class="article-main-image-container">
+                    <img src="../../assets/img/pizza.png" alt="Pizza" class="article-main-image" loading="lazy">
+                </div>
                 <div class="article-interactions-container">
                     <div class="article-interactions">
                         <div class="interaction-item">
@@ -64,5 +66,41 @@ export const ArticleDetail = (article) => {
             <!-- Comments Section -->
             ${Comment()}
         </div>
+        
+        <script>
+            // Initialize responsive image loading
+            document.addEventListener('DOMContentLoaded', function() {
+                const mainImage = document.querySelector('.article-main-image');
+                if (mainImage) {
+                    mainImage.addEventListener('load', function() {
+                        this.classList.add('loaded');
+                    });
+                }
+                
+                // Handle back button for mobile
+                const backButton = document.querySelector('.back-button');
+                if (backButton && window.innerWidth <= 768) {
+                    backButton.querySelector('.back-text').textContent = 'Kembali';
+                }
+                
+                // Adjust image size based on screen width
+                function adjustImageSize() {
+                    const mainImage = document.querySelector('.article-main-image');
+                    if (mainImage) {
+                        if (window.innerWidth <= 576) {
+                            mainImage.style.maxHeight = '250px';
+                        } else if (window.innerWidth <= 768) {
+                            mainImage.style.maxHeight = '350px';
+                        } else {
+                            mainImage.style.maxHeight = '500px';
+                        }
+                    }
+                }
+                
+                // Initial call and add resize listener
+                adjustImageSize();
+                window.addEventListener('resize', adjustImageSize);
+            });
+        </script>
     `;
 }; 

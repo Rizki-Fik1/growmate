@@ -2,9 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mate News - AI Scanning</title>
-    <link rel="stylesheet" href="styles/news-css/main.css">
     <link rel="stylesheet" href="/styles/news.css">
     <link rel="stylesheet" href="styles/chart-css/navbar.css">
     <link rel="stylesheet" href="styles/news-css/header.css">
@@ -22,6 +21,19 @@
         .article-text p {
             color: rgba(255, 255, 255, 0.9) !important;
         }
+        
+        /* Additional responsive styles */
+        @media screen and (max-width: 768px) {
+            .article-text {
+                max-height: 250px !important;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .article-text {
+                max-height: 200px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -35,6 +47,6 @@
             app.innerHTML = AiScanning();
         });
     </script>
-    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/navbar.js"></script>
 </body>
 </html>

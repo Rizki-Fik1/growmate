@@ -67,6 +67,36 @@ export const ForumContent = () => {
                 // window.location.href = '/question-details.html'; // Uncomment ini untuk implementasi redirect
             });
         });
+
+       // Setup event listener untuk action buttons
+       const actionButtons = document.querySelectorAll('.post-actions .action-btn');
+       
+       // Add navigation for post-action-btn
+       const postActionBtn = document.getElementById('post-action-btn');
+       if (postActionBtn) {
+           postActionBtn.addEventListener('click', () => {
+               // Navigate to forum.html
+               window.location.href = 'forum.html';
+           });
+       }
+       
+       // Add navigation for jawab-action-btn
+       const jawabActionBtn = document.getElementById('jawab-action-btn');
+       if (jawabActionBtn) {
+           jawabActionBtn.addEventListener('click', () => {
+               // Navigate to answer-forum.html
+               window.location.href = 'answer-forum.html';
+           });
+       }
+       
+       // Add navigation for forum-question-page button
+       const forumQuestionBtn = document.getElementById('forum-question-page');
+       if (forumQuestionBtn) {
+           forumQuestionBtn.addEventListener('click', () => {
+               // Navigate to question-forum.html
+               window.location.href = 'question-forum.html';
+           });
+       }
     };
 
     // Memanggil setup events setelah DOM selesai di-load
@@ -95,15 +125,15 @@ export const ForumContent = () => {
                 <div class="post-actions">
                     <button class="action-btn" id="post-action-btn">
                         <i class="fas fa-edit"></i>
-                        Post
+                        <span class="action-text">Post</span>
                     </button>
-                    <a href="question-forum.html" class="action-btn" id="forum-question-page">
+                    <button class="action-btn" id="forum-question-page">
                         <i class="fas fa-question-circle"></i>
-                        Tanya
-                    </a>
+                        <span class="action-text">Tanya</span>
+                    </button>
                     <button class="action-btn" id="jawab-action-btn">
                         <i class="fas fa-reply"></i>
-                        Jawab
+                        <span class="action-text">Jawab</span>
                     </button>
                 </div>
             </div>
@@ -117,10 +147,15 @@ export const ForumContent = () => {
                         <img src="/api/placeholder/40/40" alt="AndiSulaiman">
                         <div class="author-info">
                             <span class="author-name">AndiSulaiman</span>
-                            <span class="author-badge">Si Paling Aktif</span>
+                            <div class="post-meta">
+                                <span class="post-date">28 Jan 2025</span>
+                                <span class="post-category kategori-edukasi">Kategori Edukasi</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="post-date">28 Jan 2025</div>
+                    <div class="post-options">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
                 </div>
                 <div class="post-content">
                     <h3>Rekomendasi film apa yang bagus untuk akhir tahun?</h3>
@@ -156,9 +191,15 @@ export const ForumContent = () => {
                         <img src="/api/placeholder/40/40" alt="HerryPrastyo">
                         <div class="author-info">
                             <span class="author-name">HerryPrastyo</span>
+                            <div class="post-meta">
+                                <span class="post-date">17 Jan 2025</span>
+                                <span class="post-category kategori-teknologi">Kategori Teknologi</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="post-date">17 Jan 2025</div>
+                    <div class="post-options">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
                 </div>
                 <div class="post-content">
                     <h3>Bagaimana cara mengatasi writer's block?</h3>
@@ -193,10 +234,15 @@ export const ForumContent = () => {
                         <img src="/api/placeholder/40/40" alt="DianaWijaya">
                         <div class="author-info">
                             <span class="author-name">DianaWijaya</span>
-                            <span class="author-badge">Kontributor</span>
+                            <div class="post-meta">
+                                <span class="post-date">10 Feb 2025</span>
+                                <span class="post-category kategori-politik">Kategori Politik</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="post-date">10 Feb 2025</div>
+                    <div class="post-options">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
                 </div>
                 <div class="post-content">
                     <h3>Review kafe baru di Jakarta Selatan</h3>
@@ -352,17 +398,19 @@ export const initForumContentEvents = () => {
         }
     });
     
-    // Add hover effect for post action button
+    // Add navigation for post-action-btn
     const postActionBtn = document.getElementById('post-action-btn');
     if (postActionBtn) {
-        postActionBtn.addEventListener('mouseenter', () => {
-            if (!postActionBtn.classList.contains('active')) {
-                postActionBtn.classList.add('hover');
-            }
-        });
-        
-        postActionBtn.addEventListener('mouseleave', () => {
-            postActionBtn.classList.remove('hover');
+        // Add navigation for post-action-btn
+        postActionBtn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            actionButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to post action button
+            postActionBtn.classList.add('active');
+            
+            // Navigate to forum.html
+            window.location.href = 'forum.html';
         });
     }
     
@@ -375,6 +423,24 @@ export const initForumContentEvents = () => {
             
             // Add active class to forum question button
             forumQuestionBtn.classList.add('active');
+            
+            // Navigate to question-forum.html
+            window.location.href = 'question-forum.html';
+        });
+    }
+    
+    // Add navigation for jawab-action-btn
+    const jawabActionBtn = document.getElementById('jawab-action-btn');
+    if (jawabActionBtn) {
+        jawabActionBtn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            actionButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to jawab action button
+            jawabActionBtn.classList.add('active');
+            
+            // Navigate to answer-forum.html
+            window.location.href = 'answer-forum.html';
         });
     }
 };

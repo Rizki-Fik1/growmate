@@ -1,4 +1,3 @@
-
 export const PinTodo = () => {
     return `
         <div class="pin-todo-container">

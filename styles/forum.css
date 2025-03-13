@@ -17,6 +17,7 @@ body {
 
 .forum-layout {
     display: flex;
+    position: relative;
 }
 
 .container {
@@ -32,4 +33,47 @@ body {
 .header-wrapper {
     margin-top: 20px;
     margin-bottom: 0px;
+    position: relative;
+}
+
+/* Responsive styles for forum layout */
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .forum-layout {
+        flex-wrap: nowrap;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+        margin-left: 60px; /* Adjust for smaller navbar */
+    }
+    
+    .header-wrapper {
+        margin-top: 15px;
+    }
+    
+    .left-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .forum-layout {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+        margin-left: 0; /* For mobile, navbar is likely at the bottom */
+    }
+    
+    .header-wrapper {
+        margin-top: 10px;
+    }
 }

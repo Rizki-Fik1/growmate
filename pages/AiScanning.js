@@ -49,7 +49,7 @@ export const AiScanning = () => {
                         
                         <div class="score-section">
                             <div class="score-circle">
-                                <svg viewBox="0 0 36 36" style="width: 120px; height: 120px;">
+                                <svg viewBox="0 0 36 36" style="width: 100%; height: 100%;">
                                     <path d="M18 2.0845
                                         a 15.9155 15.9155 0 0 1 0 31.831
                                         a 15.9155 15.9155 0 0 1 0 -31.831"

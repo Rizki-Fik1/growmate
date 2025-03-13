@@ -1,98 +1,75 @@
 export const Comment = () => {
-    // Add JavaScript to handle reply functionality with inline event handlers
-    const script = `
-        <script>
-            function toggleReplyInput(button) {
-                // Find the closest reply container
-                const replyContainer = button.closest('.comment-item').querySelector('.reply-input-container');
-                
-                // Toggle visibility
-                if (replyContainer.style.display === 'none' || replyContainer.style.display === '') {
-                    replyContainer.style.display = 'flex';
-                    button.classList.add('active'); // Add active class to button
-                    
-                    // Focus on the textarea
-                    setTimeout(() => {
-                        const textarea = replyContainer.querySelector('textarea');
-                        if (textarea) {
-                            textarea.focus();
-                        }
-                    }, 100);
-                } else {
-                    replyContainer.style.display = 'none';
-                    button.classList.remove('active'); // Remove active class from button
-                }
-                
-                return false; // Prevent default
-            }
-        </script>
-    `;
     
     // Artikel yang sesuai section
     const artikelYangSesuai = `
         <div class="related-articles-section">
-            <h3>Artikel yang sesuai</h3>
-            <div class="related-articles-grid">
+            <div class="section-header">
+                <h2>Artikel yang sesuai</h2>
+                <a href="#" class="view-all">Lebih banyak <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.91 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91 4.08" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></a>
+            </div>
+            <div class="popular-articles">
                 <!-- Article Card 1 -->
-                <div class="article-card">
+                <div class="popular-article">
                     <div class="article-image">
                         <img src="../../assets/img/pizza.png" alt="Pizza">
                     </div>
                     <div class="article-info">
-                        <div class="article-author">
+                        <div class="author">
                             <img src="../../assets/img/profile-dummy 1.png" alt="Author" class="author-img">
                             <span class="author-name">mass.muhh_</span>
                             <span class="post-time">10 jam lalu</span>
                         </div>
-                        <h4 class="article-title">Pizza enak enak enak enak enak</h4>
+                        <h3 class="article-title">Pizza enak enak enak enak enak</h3>
                         <p class="article-excerpt">bahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhc...</p>
                     </div>
                 </div>
 
                 <!-- Article Card 2 -->
-                <div class="article-card">
+                <div class="popular-article">
                     <div class="article-image">
                         <img src="../../assets/img/pizza.png" alt="Pizza">
                     </div>
                     <div class="article-info">
-                        <div class="article-author">
+                        <div class="author">
                             <img src="../../assets/img/profile-dummy 1.png" alt="Author" class="author-img">
                             <span class="author-name">mass.muhh_</span>
                             <span class="post-time">10 jam lalu</span>
                         </div>
-                        <h4 class="article-title">Pizza enak enak enak enak enak</h4>
+                        <h3 class="article-title">Pizza enak enak enak enak enak</h3>
                         <p class="article-excerpt">bahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhc...</p>
                     </div>
                 </div>
 
                 <!-- Article Card 3 -->
-                <div class="article-card">
+                <div class="popular-article">
                     <div class="article-image">
                         <img src="../../assets/img/pizza.png" alt="Pizza">
                     </div>
                     <div class="article-info">
-                        <div class="article-author">
+                        <div class="author">
                             <img src="../../assets/img/profile-dummy 1.png" alt="Author" class="author-img">
                             <span class="author-name">mass.muhh_</span>
                             <span class="post-time">10 jam lalu</span>
                         </div>
-                        <h4 class="article-title">Pizza enak enak enak enak enak</h4>
+                        <h3 class="article-title">Pizza enak enak enak enak enak</h3>
                         <p class="article-excerpt">bahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhc...</p>
                     </div>
                 </div>
 
                 <!-- Article Card 4 -->
-                <div class="article-card">
+                <div class="popular-article">
                     <div class="article-image">
                         <img src="../../assets/img/pizza.png" alt="Pizza">
                     </div>
                     <div class="article-info">
-                        <div class="article-author">
+                        <div class="author">
                             <img src="../../assets/img/profile-dummy 1.png" alt="Author" class="author-img">
                             <span class="author-name">mass.muhh_</span>
                             <span class="post-time">10 jam lalu</span>
                         </div>
-                        <h4 class="article-title">Pizza enak enak enak enak enak</h4>
+                        <h3 class="article-title">Pizza enak enak enak enak enak</h3>
                         <p class="article-excerpt">bahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhcbahsdjdhjabadjshabjshabjshabjshabjhc...</p>
                     </div>
                 </div>
@@ -299,8 +276,6 @@ export const Comment = () => {
             
             <!-- Related Articles Section -->
             ${artikelYangSesuai}
-            
-            ${script}
         </div>
     `;
 }; 

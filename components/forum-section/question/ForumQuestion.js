@@ -43,19 +43,28 @@ export const ForumQuestion = () => {
         
         tabs.forEach((tab, index) => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
+                // Menghapus class active dari semua tab
                 tabs.forEach(t => t.classList.remove('active'));
-                
-                // Add active class to clicked tab
+                // Menambahkan class active ke tab yang diklik
                 tab.classList.add('active');
                 
-                // Hide all tab contents
+                // Menyembunyikan semua tab content
                 tabContents.forEach(content => {
                     content.style.display = 'none';
                 });
                 
-                // Show the corresponding tab content
+                // Menampilkan tab content yang sesuai
                 tabContents[index].style.display = 'block';
+            });
+        });
+        
+        // Setup event listener untuk question cards
+        const questionCards = document.querySelectorAll('.question-card');
+        questionCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Redirect ke halaman detail pertanyaan (bisa diganti dengan URL yang sesuai)
+                // alert('Navigating to question details...');
+                // window.location.href = '/question-details.html'; // Uncomment ini untuk implementasi redirect
             });
         });
     };
@@ -152,9 +161,35 @@ export const ForumQuestion = () => {
             }
         });
         
-        // Add hover effect for post action button
+        // Set active class on the forum question page button when it's clicked
+        const forumQuestionBtn = document.getElementById('forum-question-page');
+        if (forumQuestionBtn) {
+            forumQuestionBtn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                actionButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to forum question button
+                forumQuestionBtn.classList.add('active');
+                
+                // Navigate to question-forum.html
+                window.location.href = 'question-forum.html';
+            });
+        }
+        
+        // Add navigation for post-action-btn
         const postActionBtn = document.getElementById('post-action-btn');
         if (postActionBtn) {
+            postActionBtn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                actionButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to post action button
+                postActionBtn.classList.add('active');
+                
+                // Navigate to forum.html
+                window.location.href = 'forum.html';
+            });
+            
             postActionBtn.addEventListener('mouseenter', () => {
                 if (!postActionBtn.classList.contains('active')) {
                     postActionBtn.classList.add('hover');
@@ -166,15 +201,18 @@ export const ForumQuestion = () => {
             });
         }
         
-        // Set active class on the forum question page link when it's clicked
-        const forumQuestionBtn = document.getElementById('forum-question-page');
-        if (forumQuestionBtn) {
-            forumQuestionBtn.addEventListener('click', () => {
+        // Add navigation for jawab-action-btn
+        const jawabActionBtn = document.getElementById('jawab-action-btn');
+        if (jawabActionBtn) {
+            jawabActionBtn.addEventListener('click', () => {
                 // Remove active class from all buttons
                 actionButtons.forEach(btn => btn.classList.remove('active'));
                 
-                // Add active class to forum question button
-                forumQuestionBtn.classList.add('active');
+                // Add active class to jawab action button
+                jawabActionBtn.classList.add('active');
+                
+                // Navigate to answer-forum.html
+                window.location.href = 'answer-forum.html';
             });
         }
     };
@@ -207,18 +245,18 @@ export const ForumQuestion = () => {
                         <i class="fas fa-edit"></i>
                         Post
                     </button>
-                    <a href="question-forum.html" class="action-btn" id="forum-question-page">
+                    <button class="action-btn" id="forum-question-page">
                         <i class="fas fa-question-circle"></i>
                         Tanya
-                    </a>
-                    <button class="action-btn active" id="jawab-action-btn">
+                    </button>
+                    <button class="action-btn" id="jawab-action-btn">
                         <i class="fas fa-reply"></i>
                         Jawab
                     </button>
                 </div>
             </div>
             
-            <h1 class="section-title">Jawaban <span class="trending-text">Anda</span></h1>
+            <h1 class="section-title">Pertanyaan <span class="trending-text">Trending</span></h1>
             
             <!-- Forum Posts -->
             <div class="forum-posts">
@@ -241,23 +279,27 @@ export const ForumQuestion = () => {
                     </div>
                     
                     <div class="post-type">
-                        <i class="fas fa-comment"></i>
-                        <span>Jawaban Anda</span>
+                        <i class="fas fa-question-circle"></i>
+                        <span>Pertanyaan (Aktif)</span>
                     </div>
                     
                     <div class="post-content">
-                        <h3>Menurut saya, 100 hari pemerintahan Prabowo-Gibran sudah menunjukkan beberapa kemajuan di bidang ekonomi dan infrastruktur...</h3>
+                        <h3>Apa tanggapan kalian terkait 100 hari pemerintahan Prabowo-Gibran?</h3>
                     </div>
                     
                     <div class="post-footer">
                         <div class="post-stats">
-                            <span class="stat-item">Menjawab pertanyaan: "Apa tanggapan kalian terkait 100 hari pemerintahan Prabowo-Gibran?"</span>
+                            <span class="stat-item">3 jawaban</span>
+                            <span class="stat-separator">•</span>
+                            <span class="stat-item">1.3k suka</span>
+                            <span class="stat-separator">•</span>
+                            <span class="stat-item">64 share</span>
                         </div>
                         
                         <div class="post-actions-bottom">
                             <button class="action-button jawab-btn">
-                                <i class="fas fa-edit"></i>
-                                Edit
+                                <i class="fas fa-comment"></i>
+                                Jawab
                             </button>
                             <button class="action-button simpan-btn">
                                 <i class="far fa-bookmark"></i>
@@ -286,23 +328,27 @@ export const ForumQuestion = () => {
                     </div>
                     
                     <div class="post-type">
-                        <i class="fas fa-comment"></i>
-                        <span>Jawaban Anda</span>
+                        <i class="fas fa-question-circle"></i>
+                        <span>Pertanyaan (Aktif)</span>
                     </div>
                     
                     <div class="post-content">
-                        <h3>Untuk memajukan pendidikan di Indonesia, kita perlu fokus pada peningkatan kualitas guru, pemerataan akses pendidikan, dan pembaruan kurikulum yang relevan dengan kebutuhan masa kini...</h3>
+                        <h3>Apa langkah yang benar-benar tepat agar Pendidikan kita maju?</h3>
                     </div>
                     
                     <div class="post-footer">
                         <div class="post-stats">
-                            <span class="stat-item">Menjawab pertanyaan: "Apa langkah yang benar-benar tepat agar Pendidikan kita maju?"</span>
+                            <span class="stat-item">3 jawaban</span>
+                            <span class="stat-separator">•</span>
+                            <span class="stat-item">964 suka</span>
+                            <span class="stat-separator">•</span>
+                            <span class="stat-item">35 share</span>
                         </div>
                         
                         <div class="post-actions-bottom">
                             <button class="action-button jawab-btn">
-                                <i class="fas fa-edit"></i>
-                                Edit
+                                <i class="fas fa-comment"></i>
+                                Jawab
                             </button>
                             <button class="action-button simpan-btn">
                                 <i class="far fa-bookmark"></i>
@@ -331,23 +377,27 @@ export const ForumQuestion = () => {
                     </div>
                     
                     <div class="post-type">
-                        <i class="fas fa-comment"></i>
-                        <span>Jawaban Anda</span>
+                        <i class="fas fa-question-circle"></i>
+                        <span>Pertanyaan (Aktif)</span>
                     </div>
                     
                     <div class="post-content">
-                        <h3>Saya setuju bahwa penerapan teknologi Blockchain di Indonesia memiliki potensi besar, terutama untuk transparansi dalam sistem keuangan dan pemerintahan...</h3>
+                        <h3>Yoo guysss... pada setuju gak kalo penerapan teknologi Blockchain di Indonesia...</h3>
                     </div>
                     
                     <div class="post-footer">
                         <div class="post-stats">
-                            <span class="stat-item">Menjawab pertanyaan: "Yoo guysss... pada setuju gak kalo penerapan teknologi Blockchain di Indonesia..."</span>
+                            <span class="stat-item">0 jawaban</span>
+                            <span class="stat-separator">•</span>
+                            <span class="stat-item">124 suka</span>
+                            <span class="stat-separator">•</span>
+                            <span class="stat-item">12 share</span>
                         </div>
                         
                         <div class="post-actions-bottom">
                             <button class="action-button jawab-btn">
-                                <i class="fas fa-edit"></i>
-                                Edit
+                                <i class="fas fa-comment"></i>
+                                Jawab
                             </button>
                             <button class="action-button simpan-btn">
                                 <i class="far fa-bookmark"></i>
@@ -435,7 +485,7 @@ export const ForumQuestion = () => {
                         <i class="fas fa-times"></i>
                     </div>
                     <div class="popup-header">
-                        <div class="popup-title">Edit Jawaban Anda</div>
+                        <div class="popup-title">Berikan Jawaban Anda</div>
                     </div>
                     
                     <div class="popup-body">
@@ -448,11 +498,11 @@ export const ForumQuestion = () => {
                                 <span>Publik</span>
                             </div>
                         </div>
-                        <textarea class="answer-input" placeholder="Edit jawaban Anda di sini..."></textarea>
+                        <textarea class="answer-input" placeholder="Tulis jawaban Anda di sini..."></textarea>
                     </div>
                     <div class="popup-footer">
                         <button class="send-button">
-                            Simpan Perubahan
+                            Kirim Jawaban
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>

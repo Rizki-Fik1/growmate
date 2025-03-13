@@ -18,7 +18,15 @@ export const Navbar = (currentPath) => {
     const forumClass = isActive('forum.html') ? 'active' : '';
 
     return `
-        <div class="navbar">
+        <!-- Navbar toggle button for mobile/tablet -->
+        <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+            <span></span>
+        </button>
+        
+        <!-- Overlay for mobile/tablet -->
+        <div class="navbar-overlay" id="navbar-overlay"></div>
+        
+        <div class="navbar" id="navbar">
             <div class="nav-back" data-path="index.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 91 91" fill="none">
                     <g filter="url(#filter0_d_711_491)">
@@ -65,7 +73,7 @@ export const Navbar = (currentPath) => {
                     <path d="M5.04444 27.3452L7.41511 25.3279L7.43067 25.3147C7.92533 24.8927 8.17578 24.6809 8.45422 24.5303C8.70415 24.3946 8.96756 24.2964 9.24444 24.2357C9.554 24.1678 9.876 24.1678 10.5231 24.1678H24.0269C25.766 24.1678 26.6371 24.1678 27.3013 23.8071C27.8867 23.4898 28.3626 22.9835 28.6609 22.3608C29 21.6525 29 20.7258 29 18.879V6.29054C29 4.44043 29 3.51371 28.6609 2.80709C28.3622 2.18411 27.8857 1.67778 27.2998 1.36076C26.6356 1 25.7644 1 24.0222 1H5.97778C4.23556 1 3.36444 1 2.69867 1.36076C2.1133 1.67806 1.63738 2.18436 1.33911 2.80709C1 3.51537 1 4.44208 1 6.29551V25.2782C1 27.0423 1 27.9243 1.33911 28.3761C1.48493 28.5709 1.67019 28.7282 1.88108 28.8362C2.09197 28.9442 2.32305 29.0002 2.55711 29C3.10156 29 3.74867 28.4473 5.04444 27.3452Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div class="nav-item">
+            <div class="nav-item" data-path="settings.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 37 36" fill="none">
                     <path d="M18.499 9.5V1H11.499" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M28.9971 9.5H7.99707C6.06407 9.5 4.49707 11.4028 4.49707 13.75V30.75C4.49707 33.0972 6.06407 35 7.99707 35H28.9971C30.9301 35 32.4971 33.0972 32.4971 30.75V13.75C32.4971 11.4028 30.9301 9.5 28.9971 9.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

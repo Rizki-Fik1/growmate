@@ -2,26 +2,33 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mate Chart - Todo List</title>
     <link rel="stylesheet" href="/styles/chart.css">
     <link rel="stylesheet" href="styles/chart-css/navbar.css">
     <link rel="stylesheet" href="styles/chart-css/pintodo.css">
     <link rel="stylesheet" href="styles/chart-css/hasiltodo.css">
     <link rel="stylesheet" href="styles/chart-css/daftartodo.css">
+    <link rel="stylesheet" href="styles/chart-css/daftardetail.css">
     <link rel="stylesheet" href="styles/chart-css/charttodo.css">
+    <link rel="stylesheet" href="styles/chart-css/timerange-dropdown.css">
 </head>
 <body>
     <div id="app"></div>
 
     <script type="module">
-        import { MateChart } from '/pages/MateChart.js';
+        import { MateChart } from './pages/MateChart.js';
         
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('Loading MateChart component');
             const app = document.getElementById('app');
             app.innerHTML = MateChart();
+            console.log('MateChart component loaded');
         });
     </script>
-        <script src="./scripts/navigation.js"></script>
+    <!-- Load scripts after the MateChart component is loaded -->
+    <script src="./scripts/navbar.js" defer></script>
+    <script src="./scripts/daftartodo.js" defer></script>
+    <script src="./scripts/timerange-dropdown.js" defer></script>
 </body>
 </html>

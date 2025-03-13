@@ -22,5 +22,6 @@ export const MateChart = () => {
                 ${Chart()}
             </div>
         </div>
+
     `;
 };

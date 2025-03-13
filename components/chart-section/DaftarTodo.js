@@ -1,9 +1,46 @@
 const generateTimeBlocks = () => {
     const blocks = [
-        { name: "Pagi Hari", tag: "03", time: "04:00 - 12:00", icon: "sun" },
-        { name: "Siang Hari", tag: "05", time: "13:00 - 15:00", icon: "sun" },
-        { name: "Sore Hari", tag: "03", time: "15:00 - 17:00", icon: "sunset" },
-        { name: "Malam Hari", tag: "02", time: "18:00 - 21:00", icon: "moon" }
+        { 
+            name: "Pagi Hari", 
+            tag: "03", 
+            time: "04:00 - 12:00", 
+            icon: "sun",
+            tasks: [
+                { time: "05:30", category: "Kasual", description: "Jalan-jalan di taman", completed: true },
+                { time: "08:30", category: "Penting", description: "Makan bareng temen", completed: false },
+                { time: "10:40", category: "Opsional", description: "Pergi ke Mall siang-siang", completed: false }
+            ]
+        },
+        { 
+            name: "Siang Hari", 
+            tag: "05", 
+            time: "13:00 - 15:00", 
+            icon: "sun",
+            tasks: [
+                { time: "13:30", category: "Penting", description: "Meeting dengan client", completed: false },
+                { time: "14:45", category: "Kasual", description: "Coffee break", completed: false }
+            ]
+        },
+        { 
+            name: "Sore Hari", 
+            tag: "03", 
+            time: "15:00 - 17:00", 
+            icon: "sunset",
+            tasks: [
+                { time: "15:30", category: "Penting", description: "Olahraga rutin", completed: false },
+                { time: "16:45", category: "Kasual", description: "Baca buku", completed: false }
+            ]
+        },
+        { 
+            name: "Malam Hari", 
+            tag: "02", 
+            time: "18:00 - 21:00", 
+            icon: "moon",
+            tasks: [
+                { time: "19:00", category: "Penting", description: "Makan malam", completed: false },
+                { time: "20:30", category: "Opsional", description: "Nonton film", completed: false }
+            ]
+        }
     ];
     
     const getIconSVG = (iconName) => {
@@ -22,13 +59,26 @@ const generateTimeBlocks = () => {
         return icons[iconName] || icons.sun;
     };
     
-    return blocks.map(block => `
+    const getCategoryClass = (category) => {
+        switch(category.toLowerCase()) {
+            case 'penting':
+                return 'category-penting';
+            case 'kasual':
+                return 'category-kasual';
+            case 'opsional':
+                return 'category-opsional';
+            default:
+                return 'category-default';
+        }
+    };
+    
+    return blocks.map((block, blockIndex) => `
         <div class="time-block-container">
             <div class="checkbox-container">
                 <div class="checkbox"></div>
             </div>
             <div class="time-block-box">
-                <div class="time-block-content">
+                <div class="time-block-header" data-block-index="${blockIndex}">
                     <div class="time-icon">
                         ${getIconSVG(block.icon)}
                     </div>
@@ -37,23 +87,51 @@ const generateTimeBlocks = () => {
                         <span class="time-tag">${block.tag}</span>
                     </div>
                     <div class="time-hours">${block.time}</div>
-                        <div class="expand-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="15" viewBox="0 0 30 15" fill="none">
-                                <g clip-path="url(#clip0_143_196)">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1114 12.6962L7.0402 5.625L8.8077 3.8575L14.9952 10.045L21.1827 3.8575L22.9502 5.625L15.8789 12.6962C15.6445 12.9306 15.3267 13.0622 14.9952 13.0622C14.6637 13.0622 14.3459 12.9306 14.1114 12.6962Z" fill="white"/>
-                                </g>
-                                <defs>
-                                 <clipPath id="clip0_143_196">
-                                    <rect width="15" height="30" fill="white" transform="matrix(0 1 -1 0 30 0)"/>
-                                 </clipPath>
-                                </defs>
-                            </svg>
+                    <div class="expand-icon" id="expand-icon-${blockIndex}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="15" viewBox="0 0 30 15" fill="none">
+                            <g clip-path="url(#clip0_143_196)">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1114 12.6962L7.0402 5.625L8.8077 3.8575L14.9952 10.045L21.1827 3.8575L22.9502 5.625L15.8789 12.6962C15.6445 12.9306 15.3267 13.0622 14.9952 13.0622C14.6637 13.0622 14.3459 12.9306 14.1114 12.6962Z" fill="white"/>
+                            </g>
+                            <defs>
+                             <clipPath id="clip0_143_196">
+                                <rect width="15" height="30" fill="white" transform="matrix(0 1 -1 0 30 0)"/>
+                             </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="time-block-tasks" id="tasks-${blockIndex}">
+                    ${block.tasks.map(task => `
+                        <div class="task-item">
+                            <div class="task-time">${task.time}</div>
+                            <div class="task-category ${getCategoryClass(task.category)}">${task.category}</div>
+                            <div class="task-description">${task.description}</div>
+                            <div class="task-status ${task.completed ? 'completed' : ''}">
+                                ${task.completed ? 
+                                    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="10" fill="#00FF95" stroke="#00FF95" stroke-width="2"/>
+                                        <path d="M8 12L11 15L16 9" stroke="#030C19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>` : 
+                                    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                                    </svg>`
+                                }
+                            </div>
+                            <div class="task-options">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" fill="white"/>
+                                    <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" fill="white"/>
+                                    <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" fill="white"/>
+                                </svg>
+                            </div>
                         </div>
+                    `).join('')}
                 </div>
             </div>
         </div>
     `).join('');
 };
+
 export const DaftarTodo = () => {
     return `
         <div class="card daftar-todo">

@@ -114,3 +114,86 @@
     padding: 0 8px;
     font-size: 18px;
 }
+
+/* Responsive styles for pin todo */
+@media screen and (max-width: 1024px) {
+    .pin-todo-container {
+        width: 100%;
+    }
+    
+    .card .card-title {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pin-todo-container {
+        width: 100%;
+    }
+    
+    .card .card-title {
+        font-size: 22px;
+    }
+    
+    .todo-item {
+        padding: 12px;
+    }
+    
+    .todo-item h3 {
+        font-size: 13px;
+    }
+    
+    .todo-item p {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .time-range {
+        gap: 2px;
+    }
+    
+    .time-select-box {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    .dropdown-icon-box {
+        padding: 6px 8px;
+        width: 30px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .card .card-title {
+        font-size: 20px;
+    }
+    
+    .card .card-subtitle {
+        font-size: 11px;
+    }
+    
+    .todo-item {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .todo-content {
+        margin-left: 10px;
+    }
+    
+    .todo-item h3 {
+        font-size: 12px;
+    }
+    
+    .todo-item p {
+        font-size: 10px;
+    }
+    
+    .todo-actions {
+        padding: 0 5px;
+        font-size: 16px;
+    }
+}

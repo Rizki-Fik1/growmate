@@ -60,6 +60,7 @@ export const ForumAnswers = () => {
         });
     };
 
+
     // Memanggil setup events setelah DOM selesai di-load
     setTimeout(() => {
         setupPopupEvents();
@@ -166,7 +167,7 @@ export const ForumAnswers = () => {
             });
         }
         
-        // Set active class on the forum question page link when it's clicked
+        // Set active class on the forum question page button when it's clicked
         const forumQuestionBtn = document.getElementById('forum-question-page');
         if (forumQuestionBtn) {
             forumQuestionBtn.addEventListener('click', () => {
@@ -175,6 +176,38 @@ export const ForumAnswers = () => {
                 
                 // Add active class to forum question button
                 forumQuestionBtn.classList.add('active');
+                
+                // Navigate to question-forum.html
+                window.location.href = 'question-forum.html';
+            });
+        }
+        
+        // Add navigation for post-action-btn
+        if (postActionBtn) {
+            postActionBtn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                actionButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to post action button
+                postActionBtn.classList.add('active');
+                
+                // Navigate to forum.html
+                window.location.href = 'forum.html';
+            });
+        }
+        
+        // Add navigation for jawab-action-btn
+        const jawabActionBtn = document.getElementById('jawab-action-btn');
+        if (jawabActionBtn) {
+            jawabActionBtn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                actionButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to jawab action button
+                jawabActionBtn.classList.add('active');
+                
+                // Navigate to answer-forum.html
+                window.location.href = 'answer-forum.html';
             });
         }
     };
@@ -205,15 +238,15 @@ export const ForumAnswers = () => {
                 <div class="post-actions">
                     <button class="action-btn" id="post-action-btn">
                         <i class="fas fa-edit"></i>
-                        Post
+                        <span class="action-text">Post</span>
                     </button>
-                    <a href="question-forum.html" class="action-btn" id="forum-question-page">
+                    <button class="action-btn" id="forum-question-page">
                         <i class="fas fa-question-circle"></i>
-                        Tanya
-                    </a>
+                        <span class="action-text">Tanya</span>
+                    </button>
                     <button class="action-btn active" id="jawab-action-btn">
                         <i class="fas fa-reply"></i>
-                        Jawab
+                        <span class="action-text">Jawab</span>
                     </button>
                 </div>
             </div>
@@ -435,26 +468,28 @@ export const ForumAnswers = () => {
                         <i class="fas fa-times"></i>
                     </div>
                     <div class="popup-header">
-                        <div class="popup-title">Edit Jawaban Anda</div>
+                        <div class="popup-tab active">Tulis Jawaban</div>
                     </div>
                     
-                    <div class="popup-body">
-                        <div class="user-info">
-                            <div class="user-avatar">
-                                <img src="../../assets/img/profile-dummy 1.png" alt="User Avatar">
+                    <div class="tab-content" style="display: block;">
+                        <div class="popup-body">
+                            <div class="user-info">
+                                <div class="user-avatar">
+                                    <img src="../../assets/img/profile-dummy 1.png" alt="User Avatar">
+                                </div>
+                                <div class="visibility-selector">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Publik</span>
+                                </div>
                             </div>
-                            <div class="visibility-selector">
-                                <i class="fas fa-eye"></i>
-                                <span>Publik</span>
-                            </div>
+                            <textarea class="answer-input" placeholder="Tulis jawaban Anda di sini..."></textarea>
                         </div>
-                        <textarea class="answer-input" placeholder="Edit jawaban Anda di sini..."></textarea>
-                    </div>
-                    <div class="popup-footer">
-                        <button class="send-button">
-                            Simpan Perubahan
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                        <div class="popup-footer">
+                            <button class="send-button">
+                                Kirim
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -463,4 +498,49 @@ export const ForumAnswers = () => {
             <div id="notification-popup" class="notification-popup"></div>
         </div>
     `;
+};
+
+// Initialize forum answer events
+export const initForumAnswerEvents = () => {
+    // Handle action buttons active state
+    const actionButtons = document.querySelectorAll('.post-actions .action-btn');
+    
+    actionButtons.forEach(button => {
+        if (button.id !== 'forum-question-page') {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                actionButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+            });
+        }
+    });
+    
+    // Add navigation for post-action-btn
+    const postActionBtn = document.getElementById('post-action-btn');
+    if (postActionBtn) {
+        postActionBtn.addEventListener('click', () => {
+            // Navigate to forum.html
+            window.location.href = 'forum.html';
+        });
+    }
+    
+    // Add navigation for forum-question-page button
+    const forumQuestionBtn = document.getElementById('forum-question-page');
+    if (forumQuestionBtn) {
+        forumQuestionBtn.addEventListener('click', () => {
+            // Navigate to question-forum.html
+            window.location.href = 'question-forum.html';
+        });
+    }
+    
+    // Add navigation for jawab-action-btn
+    const jawabActionBtn = document.getElementById('jawab-action-btn');
+    if (jawabActionBtn) {
+        jawabActionBtn.addEventListener('click', () => {
+            // Navigate to answer-forum.html
+            window.location.href = 'answer-forum.html';
+        });
+    }
 }; 

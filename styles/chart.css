@@ -10,6 +10,7 @@ body {
     background-color: #030C19;
     color: white;
     padding: 0;
+    transition: margin 0.3s ease;
 }
 
 .container {
@@ -17,6 +18,7 @@ body {
     margin: 0 auto;
     margin-left: 90px; 
     padding: 20px;
+    transition: margin-left 0.3s ease;
 }
 
 header {
@@ -59,20 +61,37 @@ header {
 }
 
 /* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .main-layout {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .container {
+        padding: 15px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .main-layout {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .container {
         margin-left: 60px; /* Sesuai dengan lebar navbar di tablet */
-        padding: 15px;
+        padding: 12px;
+    }
+    
+    /* When navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
     }
     
     .logo {
@@ -82,6 +101,11 @@ header {
     .card {
         padding: 15px;
     }
+    
+    /* Ensure chart spans full width on mobile */
+    .chart-container {
+        grid-column: span 1 !important;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -90,11 +114,45 @@ header {
         padding: 10px;
     }
     
+    /* When navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
+    }
+    
+    .logo {
+        font-size: 22px;
+    }
+    
     .card-title {
         font-size: 18px;
     }
     
     .card-subtitle {
         font-size: 13px;
+    }
+    
+    .main-layout {
+        gap: 12px;
+    }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 360px) {
+    .container {
+        margin-left: 45px;
+        padding: 8px;
+    }
+    
+    /* When navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .card {
+        padding: 12px;
     }
 }

@@ -328,3 +328,337 @@
 .posting-btn:hover {
     opacity: 0.9;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 1400px) {
+    .scanning-content {
+        grid-template-columns: 600px 500px;
+        gap: 20px;
+    }
+    
+    .article-preview, .scanning-result {
+        height: calc(140vh - 120px);
+    }
+    
+    .score-section {
+        padding: 24px;
+        gap: 24px;
+    }
+    
+    .score-circle {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .scanning-content {
+        grid-template-columns: 500px 400px;
+        gap: 16px;
+    }
+    
+    .article-preview, .scanning-result {
+        padding: 20px;
+        height: 800px;
+    }
+    
+    .article-preview h2 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .article-text h3 {
+        font-size: 18px;
+    }
+    
+    .article-text h4 {
+        font-size: 16px;
+    }
+    
+    .result-header h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .score-section {
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .score-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .score-text h4 {
+        font-size: 20px;
+    }
+    
+    .suggestions-section h4 {
+        font-size: 18px;
+    }
+    
+    .suggestion-item {
+        padding: 16px;
+    }
+    
+    .posting-btn {
+        padding: 10px 24px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .scanning-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .article-preview, .scanning-result {
+        height: auto;
+        max-height: 1200px;
+    }
+
+    .article-preview h2 {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+    
+    .article-text {
+        max-height: 300px;
+    }
+
+    .article-text h3 {
+        font-size: 22px;
+    }
+    
+    .article-text h4 {
+        font-size: 20px;
+    }
+
+    .article-text p {
+        font-size: 16px;
+    }
+    
+    .suggestion-list {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .scanning-page {
+        padding: 10px 0;
+    }
+    
+    .article-preview, .scanning-result {
+        padding: 16px;
+        max-height: 1200px;
+    }
+    
+    .article-preview h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+    
+    .article-image {
+        margin-bottom: 16px;
+    }
+    
+    .article-text {
+        max-height: 250px;
+        padding-right: 8px;
+    }
+    
+    .article-text h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    
+    .article-text h4 {
+        font-size: 18px;
+        margin: 16px 0 8px;
+    }
+    
+    .article-text p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+    
+    .result-header h3 {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .score-section {
+        padding: 16px;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .score-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .score-text h4 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    
+    .score-text p {
+        font-size: 12px;
+    }
+    
+    .suggestions-section h4 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .suggestion-list {
+        gap: 12px;
+        max-height: 250px;
+    }
+    
+    .suggestion-item {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .original-text {
+        padding-left: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .original-text p, .suggestion-text p {
+        font-size: 13px;
+    }
+    
+    .suggestion-actions {
+        margin: 12px -12px -12px -12px;
+    }
+    
+    .remove-btn {
+        padding: 10px 12px;
+    }
+    
+    .apply-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .posting-section {
+        margin-top: 16px;
+        padding: 12px 0;
+    }
+    
+    .posting-section p {
+        font-size: 13px;
+    }
+    
+    .posting-btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .article-preview, .scanning-result {
+        padding: 12px;
+        max-height: 750px;
+        border-radius: 12px;
+    }
+    
+    .article-preview h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .article-image {
+        margin-bottom: 12px;
+    }
+    
+    .article-text {
+        max-height: 200px;
+    }
+    
+    .article-text h3 {
+        font-size: 15px;
+    }
+    
+    .article-text h4 {
+        font-size: 14px;
+    }
+    
+    .article-text p {
+        font-size: 12px;
+    }
+    
+    .result-header h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .score-section {
+        padding: 12px;
+        gap: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .score-text {
+        text-align: center;
+        padding-top: 0;
+    }
+    
+    .score-text h4 {
+        font-size: 16px;
+    }
+    
+    .suggestions-section h4 {
+        font-size: 15px;
+    }
+    
+    .suggestion-list {
+        max-height: 200px;
+    }
+    
+    .suggestion-item {
+        padding: 10px;
+    }
+    
+    .original-text {
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .original-text p, .suggestion-text p {
+        font-size: 12px;
+    }
+    
+    .suggestion-actions {
+        margin: 10px -10px -10px -10px;
+    }
+    
+    .remove-btn {
+        padding: 8px 10px;
+    }
+    
+    .remove-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .apply-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .posting-section {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .posting-btn {
+        width: 100%;
+    }
+}
