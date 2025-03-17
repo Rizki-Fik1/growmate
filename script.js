@@ -97,6 +97,25 @@ function addEventListeners() {
         getStartedButton.addEventListener('click', handleNavigation);
     }
 
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('nav .flex');
+    
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu && mobileMenuBtn && !navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+    }
+
     // Animasi fade-in
     const animatedElements = document.querySelectorAll('.hero-section h1, .hero-section p, .hero-section .buttons');
     animatedElements.forEach((element, index) => {
@@ -123,30 +142,70 @@ function addEventListeners() {
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            const targetId = link.getAttribute('href');
             const targetSection = link.textContent.toLowerCase();
+            
+            // Tutup menu mobile jika sedang terbuka
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav .flex');
+            if (mobileMenuBtn && mobileMenuBtn.classList.contains('active')) {
+                mobileMenuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+            
+            // Navigasi ke element berdasarkan id
+            if (targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+            }
+            
+            // Fallback ke navigasi berdasarkan class jika id tidak ditemukan
+            let targetElement = null;
             
             switch(targetSection) {
                 case 'features':
-                    window.scrollTo({
-                        top: document.querySelector('.timeline-section').offsetTop,
-                        behavior: 'smooth'
-                    });
+                    targetElement = document.querySelector('#features') || document.querySelector('.timeline-container');
                     break;
                 case 'about us':
-                    window.scrollTo({
-                        top: document.querySelector('.about-section').offsetTop,
-                        behavior: 'smooth'
-                    });
+                    targetElement = document.querySelector('.about-section');
                     break;
                 case 'faq':
-                    window.scrollTo({
-                        top: document.querySelector('.faq-section').offsetTop,
-                        behavior: 'smooth'
-                    });
+                    targetElement = document.querySelector('.faq-section');
                     break;
+                case 'privacy policy':
+                    targetElement = document.querySelector('.footer');
+                    break;
+            }
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for navbar height
+                    behavior: 'smooth'
+                });
             }
         });
     });
+    
+    // Event listener untuk tombol Sign Up utama
+    const signupBtn = document.querySelector('.signup-btn');
+    if (signupBtn) {
+        signupBtn.addEventListener('click', () => {
+            // Navigasi ke bagian CTA
+            const ctaSection = document.querySelector('.cta-section');
+            if (ctaSection) {
+                window.scrollTo({
+                    top: ctaSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -160,7 +219,54 @@ document.addEventListener('DOMContentLoaded', () => {
         renderLanding();
     }
     
-    addEventListeners();
+    // Tambahkan sedikit delay untuk memastikan elemen-elemen telah benar-benar dirender
+    setTimeout(() => {
+        addEventListeners();
+        
+        // Event listener untuk tombol "Back to Top"
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                // Tutup menu mobile jika terbuka
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const navMenu = document.querySelector('nav .flex');
+                if (mobileMenuBtn && mobileMenuBtn.classList.contains('active')) {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+                
+                // Scroll ke atas halaman
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Home Mobile Menu
+        const homeMobileMenuBtn = document.querySelector('.home-mobile-menu-btn');
+        const homeNavMenu = document.querySelector('.comp-two');
+        
+        if (homeMobileMenuBtn && homeNavMenu) {
+            homeMobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = homeMobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                homeNavMenu.classList.toggle('active');
+                homeMobileMenuBtn.classList.toggle('active');
+                
+                // Update aria-expanded attribute for accessibility
+                homeMobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            });
+            
+            // Close home menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (homeNavMenu && homeMobileMenuBtn && !homeNavMenu.contains(e.target) && !homeMobileMenuBtn.contains(e.target)) {
+                    homeNavMenu.classList.remove('active');
+                    homeMobileMenuBtn.classList.remove('active');
+                    homeMobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    }, 100);
 });
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,13 +1,24 @@
 /* CTA Section */
 .cta-section {
     position: relative;
-    width: 100%; /* Lebar penuh */
-    background: var(--G2, linear-gradient(180deg, #008D53 0%, #1FA970 100%)); /* Warna latar belakang hijau */
-    color: white; /* Warna teks putih */
-    padding: 1rem 0; /* Padding atas dan bawah */
-    overflow-x: visible; /* Pastikan tidak ada overflow yang dipotong */
+    width: 100%;
+    background: var(--G2, linear-gradient(180deg, #008D53 0%, #1FA970 100%));
+    color: white;
+    padding: 4rem 0;
+    overflow: hidden;
     margin-top: 12rem;
     margin-bottom: 8rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .cta-section .icon-1,
@@ -18,7 +29,18 @@
 .cta-section .icon-6 {
     position: absolute;
     fill: rgba(255,255,255,0.1);
-    z-index: 2;
+    z-index: 1;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.cta-section:hover .icon-1,
+.cta-section:hover .icon-2,
+.cta-section:hover .icon-3,
+.cta-section:hover .icon-4,
+.cta-section:hover .icon-5,
+.cta-section:hover .icon-6 {
+    opacity: 1;
 }
 
 .cta-section .icon-1 { top: 30%; left: 20%; transform: rotate(-11.37deg); }
@@ -30,54 +52,285 @@
 
 /* CTA Content */
 .cta-content {
-    max-width: 100%; /* Lebar maksimal penuh */
-    margin: 0 auto; /* Pusatkan konten */
-    padding: 0 1rem; /* Padding kiri dan kanan */
-    text-align: center; /* Teks di tengah */
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    z-index: 2;
 }
 
 /* CTA Title */
 .cta-title {
-    font-size: 2.5rem; /* Ukuran font besar */
-    font-weight: bold; /* Tebal */
-    margin-bottom: 1rem; /* Jarak bawah */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cta-icon {
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-title:hover .cta-icon {
+    transform: rotate(10deg);
 }
 
 /* CTA Description */
 .cta-description {
-    font-size: 1.25rem; /* Ukuran font sedang */
-    margin-bottom: 2rem; /* Jarak bawah */
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* CTA Buttons */
 .cta-buttons {
     display: flex;
-    justify-content: center; /* Tombol di tengah */
-    gap: 1rem; /* Jarak antara tombol */
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 /* CTA Button */
+.cta-button {
+    font-weight: bold;
+    padding: 0.85rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 160px;
+}
+
 .cta-button-1 {
-    background-color: white; /* Latar belakang putih */
-    color: #000; /* Warna teks hijau */
-    font-weight: bold; /* Tebal */
-    padding: 0.75rem 1.5rem; /* Padding tombol */
-    border-radius: 20px; /* Bentuk bulat */
-    text-decoration: none; /* Hilangkan underline */
-    transition: background-color 0.3s, color 0.3s; /* Efek transisi */
+    background-color: white;
+    color: #000;
 }
 
 .cta-button-2 {
-    background-color: #030C19; /* Latar belakang putih */
-    color: #fff; /* Warna teks hijau */
-    font-weight: bold; /* Tebal */
-    padding: 0.75rem 1.5rem; /* Padding tombol */
-    border-radius: 20px; /* Bentuk bulat */
-    text-decoration: none; /* Hilangkan underline */
-    transition: background-color 0.3s, color 0.3s; /* Efek transisi */
+    background-color: #030C19;
+    color: #fff;
 }
 
 .cta-button:hover {
-    background-color: #f0f0f0; /* Warna latar belakang saat hover */
-    color: #115e3a; /* Warna teks lebih gelap saat hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button-1:hover {
+    background-color: #f0f0f0;
+}
+
+.cta-button-2:hover {
+    background-color: #192433;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .cta-section {
+        margin-top: 10rem;
+        margin-bottom: 6rem;
+    }
+    
+    .cta-content {
+        max-width: 900px;
+    }
+    
+    .cta-title {
+        font-size: 2.25rem;
+    }
+    
+    .cta-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .cta-section {
+        margin-top: 8rem;
+        margin-bottom: 5rem;
+        padding: 3rem 0;
+    }
+    
+    .cta-content {
+        max-width: 700px;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta-description {
+        font-size: 1.1rem;
+    }
+    
+    .cta-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Adjust icon positions */
+    .cta-section .icon-1 { top: 30%; left: 5%; }
+    .cta-section .icon-2 { top: 20%; right: 5%; }
+    .cta-section .icon-3 { display: none; }
+    .cta-section .icon-6 { display: none; }
+}
+
+@media screen and (max-width: 768px) {
+    .cta-section {
+        margin-top: 6rem;
+        margin-bottom: 4rem;
+        padding: 2.5rem 0;
+    }
+    
+    .cta-content {
+        padding: 0 1.5rem;
+    }
+    
+    .cta-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .cta-icon {
+        width: 40px;
+        height: 40px;
+        margin-left: 0;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+        padding: 0.75rem 1.5rem;
+        min-width: 140px;
+    }
+    
+    /* Hide more icons on mobile */
+    .cta-section .icon-1 { opacity: 0.4; }
+    .cta-section .icon-4 { opacity: 0.4; }
+    .cta-section .icon-5 { display: none; }
+}
+
+@media screen and (max-width: 576px) {
+    .cta-section {
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        padding: 2rem 0;
+        border-radius: 0;
+    }
+    
+    .cta-content {
+        padding: 0 1rem;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .cta-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .cta-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 80%;
+        text-align: center;
+    }
+    
+    /* Hide all icons except one on small mobile */
+    .cta-section .icon-1 { 
+        display: block;
+        top: 10%;
+        left: 10%; 
+    }
+    .cta-section .icon-2,
+    .cta-section .icon-3,
+    .cta-section .icon-4,
+    .cta-section .icon-5,
+    .cta-section .icon-6 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .cta-section {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .cta-title {
+        font-size: 1.25rem;
+    }
+    
+    .cta-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .cta-description {
+        font-size: 0.85rem;
+    }
+    
+    .cta-button {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .cta-section {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem 0;
+    }
+    
+    .cta-content {
+        max-width: 500px;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cta-description {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: row;
+    }
+    
+    .cta-button {
+        padding: 0.5rem 1rem;
+        min-width: 120px;
+    }
 }

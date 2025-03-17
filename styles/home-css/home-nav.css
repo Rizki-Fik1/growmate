@@ -9,6 +9,8 @@
   color: white;
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
+  z-index: 1000;
 }
 
 .left-home-nav {
@@ -35,6 +37,31 @@
   font-size: 14px;
   font-weight: lighter;
   cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.text-one:hover, .text-two:hover, .text-three:hover, .text-four:hover {
+  color: #00e676;
+}
+
+/* Tambahkan efek underline pada hover */
+.text-one:after, .text-two:after, .text-three:after, .text-four:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00e676;
+  transition: width 0.3s ease;
+}
+
+.text-one:hover:after, .text-two:hover:after, .text-three:hover:after, .text-four:hover:after {
+  width: 100%;
 }
 
 .comp-one img {
@@ -46,10 +73,266 @@
   border-radius: 10px;
   padding: 7px 25px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.right-home-nav:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
  
 .comp-three {
   margin: 0;
   padding: 0;
   font-size: 14px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+}
+
+.comp-three:hover {
+  color: #00e676;
+}
+
+/* Mobile menu button */
+.home-mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1001;
+}
+
+.home-hamburger {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.home-hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.home-hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.home-hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.home-hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.home-mobile-menu-btn.active .home-hamburger span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+  background: #00e676;
+}
+
+.home-mobile-menu-btn.active .home-hamburger span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.home-mobile-menu-btn.active .home-hamburger span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+  background: #00e676;
+}
+
+.home-mobile-menu-btn:hover .home-hamburger span {
+  background: #00e676;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .home-nav {
+    padding: 30px 40px;
+  }
+  
+  .left-home-nav {
+    gap: 30px;
+  }
+  
+  .comp-two {
+    gap: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-nav {
+    padding: 20px 30px;
+  }
+  
+  .home-mobile-menu-btn {
+    display: block;
+    order: 3;
+  }
+  
+  .left-home-nav {
+    flex: 1;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  
+  .comp-two {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 30, 50, 0.98) 100%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    z-index: 999;
+    gap: 30px;
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .comp-two.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.4s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .comp-two a {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .comp-two.active a {
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .comp-two.active a:nth-child(1) { animation-delay: 0.1s; }
+  .comp-two.active a:nth-child(2) { animation-delay: 0.2s; }
+  .comp-two.active a:nth-child(3) { animation-delay: 0.3s; }
+  .comp-two.active a:nth-child(4) { animation-delay: 0.4s; }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .text-one, .text-two, .text-three, .text-four {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    font-weight: 500;
+    width: 80%;
+    text-align: center;
+    border-radius: 30px;
+  }
+  
+  .text-one:hover, .text-two:hover, .text-three:hover, .text-four:hover {
+    background-color: rgba(0, 230, 118, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ubah efek underline menjadi highlight pada mobile */
+  .text-one:after, .text-two:after, .text-three:after, .text-four:after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-nav {
+    padding: 15px 20px;
+  }
+  
+  .comp-one img {
+    height: 28px;
+  }
+  
+  .right-home-nav {
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .comp-three {
+    font-size: 12px;
+  }
+  
+  .title-one, .title-two {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .home-nav {
+    padding: 12px 15px;
+  }
+  
+  .comp-one img {
+    height: 24px;
+  }
+  
+  .title-one, .title-two {
+    font-size: 12px;
+  }
+  
+  .right-home-nav {
+    padding: 4px 12px;
+  }
+  
+  .comp-three {
+    font-size: 11px;
+  }
+  
+  .text-one, .text-two, .text-three, .text-four {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+  }
+  
+  .comp-two.active a:nth-child(1) { animation-delay: 0.05s; }
+  .comp-two.active a:nth-child(2) { animation-delay: 0.1s; }
+  .comp-two.active a:nth-child(3) { animation-delay: 0.15s; }
+  .comp-two.active a:nth-child(4) { animation-delay: 0.2s; }
 }

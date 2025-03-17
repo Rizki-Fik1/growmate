@@ -17,19 +17,6 @@ export const ForumQuestion = () => {
             popupOverlay.style.display = 'none';
         });
         
-        // Event listener untuk tombol kirim
-        sendButton.addEventListener('click', () => {
-            // Disini bisa ditambahkan logika untuk memproses pertanyaan
-            const questionText = document.querySelector('.question-input').value;
-            if (questionText.trim() !== '') {
-                alert('Pertanyaan berhasil dikirim: ' + questionText);
-                document.querySelector('.question-input').value = '';
-                popupOverlay.style.display = 'none';
-            } else {
-                alert('Silakan masukkan pertanyaan terlebih dahulu');
-            }
-        });
-        
         // Tutup popup jika user mengklik area di luar popup
         window.addEventListener('click', (e) => {
             if (e.target === popupOverlay) {
@@ -101,20 +88,6 @@ export const ForumQuestion = () => {
             });
         }
         
-        // Event listener untuk tombol kirim pada popup jawaban
-        if (answerSendButton) {
-            answerSendButton.addEventListener('click', () => {
-                const answerText = document.querySelector('#popup-answer .answer-input').value;
-                if (answerText.trim() !== '') {
-                    alert('Jawaban berhasil dikirim: ' + answerText);
-                    document.querySelector('#popup-answer .answer-input').value = '';
-                    answerPopup.style.display = 'none';
-                } else {
-                    alert('Silakan masukkan jawaban terlebih dahulu');
-                }
-            });
-        }
-        
         // Tutup popup jawaban jika user mengklik area di luar popup
         window.addEventListener('click', (e) => {
             if (e.target === answerPopup) {
@@ -135,14 +108,6 @@ export const ForumQuestion = () => {
                 setTimeout(() => {
                     notificationPopup.classList.remove('show');
                 }, 3000);
-            });
-        });
-        
-        // Setup event listener untuk menu options
-        const optionsButtons = document.querySelectorAll('.post-options');
-        optionsButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                alert('Menu options akan segera hadir!');
             });
         });
         

@@ -93,20 +93,6 @@ export const ForumAnswers = () => {
             });
         }
         
-        // Event listener untuk tombol simpan perubahan pada popup edit
-        if (answerSendButton) {
-            answerSendButton.addEventListener('click', () => {
-                const answerText = document.querySelector('#popup-answer .answer-input').value;
-                if (answerText.trim() !== '') {
-                    alert('Perubahan berhasil disimpan: ' + answerText);
-                    document.querySelector('#popup-answer .answer-input').value = '';
-                    answerPopup.style.display = 'none';
-                } else {
-                    alert('Silakan masukkan jawaban terlebih dahulu');
-                }
-            });
-        }
-        
         // Tutup popup edit jawaban jika user mengklik area di luar popup
         window.addEventListener('click', (e) => {
             if (e.target === answerPopup) {
@@ -127,14 +113,6 @@ export const ForumAnswers = () => {
                 setTimeout(() => {
                     notificationPopup.classList.remove('show');
                 }, 3000);
-            });
-        });
-        
-        // Setup event listener untuk menu options
-        const optionsButtons = document.querySelectorAll('.post-options');
-        optionsButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                alert('Menu options akan segera hadir!');
             });
         });
         

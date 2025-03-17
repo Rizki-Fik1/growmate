@@ -8,6 +8,52 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
 });
 
+// Function to show toast notification
+function showToastNotification(message, type = 'success') {
+    // Create toast container
+    const toast = document.createElement('div');
+    toast.className = `toast-notification ${type}`;
+    
+    // Add icon based on type
+    const icon = document.createElement('div');
+    if (type === 'success') {
+        icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+        `;
+    } else if (type === 'warning') {
+        icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+        `;
+    }
+    
+    // Add message
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    
+    // Assemble toast
+    toast.appendChild(icon);
+    toast.appendChild(messageElement);
+    
+    // Add to document
+    document.body.appendChild(toast);
+    
+    // Add animation
+    setTimeout(() => toast.classList.add('show'), 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
 // Function to show task details
 async function showTaskDetail(taskData) {
     console.log('Showing task detail for:', taskData);
@@ -48,34 +94,38 @@ async function showTaskDetail(taskData) {
         const editButton = daftarTodoCard.querySelector('.edit-button');
         if (editButton) {
             editButton.addEventListener('click', function() {
-                alert('Edit functionality will be implemented here');
+                // Implement edit functionality directly without alert
+                console.log('Edit functionality will be implemented here');
             });
         }
         
         const deleteButton = daftarTodoCard.querySelector('.delete-button');
         if (deleteButton) {
             deleteButton.addEventListener('click', function() {
-                if (confirm('Apakah Anda yakin ingin menghapus tugas ini?')) {
-                    // Restore the original content
-                    daftarTodoCard.innerHTML = originalContent;
-                    daftarTodoCard.classList.remove('showing-detail');
-                    
-                    // Re-initialize the dropdowns
-                    initDaftarTodoDropdowns();
-                    
-                    // Find and remove the task from the list
-                    setTimeout(() => {
-                        const taskItems = document.querySelectorAll('.task-item');
-                        taskItems.forEach(item => {
-                            const itemTime = item.querySelector('.task-time')?.textContent;
-                            const itemDesc = item.querySelector('.task-description')?.textContent;
-                            
-                            if (itemTime === taskData.time && itemDesc === taskData.title) {
+                // Restore the original content
+                daftarTodoCard.innerHTML = originalContent;
+                daftarTodoCard.classList.remove('showing-detail');
+                
+                // Re-initialize the dropdowns
+                initDaftarTodoDropdowns();
+                
+                // Find and remove the task from the list
+                setTimeout(() => {
+                    const taskItems = document.querySelectorAll('.task-item');
+                    taskItems.forEach(item => {
+                        const itemTime = item.querySelector('.task-time')?.textContent;
+                        const itemDesc = item.querySelector('.task-description')?.textContent;
+                        
+                        if (itemTime === taskData.time && itemDesc === taskData.title) {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateX(20px)';
+                            setTimeout(() => {
                                 item.remove();
-                            }
-                        });
-                    }, 100);
-                }
+                                showToastNotification('Todo Telah Terhapus');
+                            }, 300);
+                        }
+                    });
+                }, 100);
             });
         }
     } catch (error) {
@@ -243,12 +293,13 @@ function initDaftarTodoDropdowns() {
             hapusBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 console.log('Hapus clicked for task:', taskIndex);
-                if (confirm('Apakah Anda yakin ingin menghapus tugas ini?')) {
-                    taskItem.style.opacity = '0.5';
-                    setTimeout(() => {
-                        taskItem.remove();
-                    }, 300);
-                }
+                
+                taskItem.style.opacity = '0';
+                taskItem.style.transform = 'translateX(20px)';
+                setTimeout(() => {
+                    taskItem.remove();
+                    showToastNotification('Todo Telah Terhapus');
+                }, 300);
                 optionsMenu.remove();
             });
         });

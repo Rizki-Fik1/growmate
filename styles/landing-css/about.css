@@ -120,18 +120,20 @@
     margin: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .about-container {
         flex-direction: column;
     }
     
     .about-left-section {
-        max-width: 100%;
+        max-width: 90%;
+        padding: 20px;
         margin-bottom: 30px;
     }
     
     .about-right-section {
-        width: 100%;
+        width: 90%;
+        padding: 20px;
     }
 }
 

@@ -3,7 +3,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 nav a {
@@ -11,7 +14,24 @@ nav a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    padding: 1rem;
+    padding: 0.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00e676;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 nav button {
@@ -23,6 +43,13 @@ nav button {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .flex {
@@ -43,4 +70,212 @@ nav button {
 
 .font-bold {
     font-weight: 700;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger {
+    width: 24px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 16px;
+}
+
+.mobile-menu-btn.active .hamburger span:nth-child(1) {
+    top: 8px;
+    transform: rotate(135deg);
+    background: #00e676;
+}
+
+.mobile-menu-btn.active .hamburger span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.mobile-menu-btn.active .hamburger span:nth-child(3) {
+    top: 8px;
+    transform: rotate(-135deg);
+    background: #00e676;
+}
+
+.mobile-menu-btn:hover .hamburger span {
+    background: #00e676;
+}
+
+/* Sign Up button styling */
+.signup-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    .space-x-12 > * + * {
+        margin-left: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav .flex {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(10, 30, 50, 0.98) 100%);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+        z-index: 999;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+    }
+
+    nav .flex.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    nav .flex a {
+        padding: 1rem 2rem;
+        margin: 0.5rem 0;
+        display: block;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    nav .flex.active a {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.5s ease;
+    }
+
+    nav .flex.active a:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    nav .flex.active a:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    nav .flex.active a:nth-child(3) {
+        transition-delay: 0.3s;
+    }
+
+    nav .flex.active a:nth-child(4) {
+        transition-delay: 0.4s;
+    }
+
+    nav .flex a:hover {
+        color: #00e676;
+        background-color: rgba(0, 230, 118, 0.1);
+        border-radius: 30px;
+        transform: scale(1.05);
+    }
+
+    .space-x-12 > * + * {
+        margin-left: 0;
+    }
+
+    /* Style for Sign Up button in mobile view */
+    nav .signup-btn {
+        display: none; /* Hide desktop button */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 1rem;
+    }
+
+    .text-2xl {
+        font-size: 1.25rem;
+    }
+    
+    nav .flex a {
+        font-size: 1.1rem;
+        padding: 0.85rem 1.5rem;
+    }
 }

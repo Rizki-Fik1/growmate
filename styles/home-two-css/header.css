@@ -163,7 +163,82 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+    .home-header {
+        margin-left: 100px;
+        padding: 20px 30px;
+    }
+
+    .greeting-title {
+        font-size: 36px;
+    }
+
+    .greeting-subtitle {
+        font-size: 16px;
+    }
+
+    .exp-bar-container {
+        max-width: 600px;
+    }
+}
+
+/* Medium screens (992px to 1199px) */
+@media (max-width: 1199px) {
+    .home-header {
+        margin-left: 90px;
+        padding: 18px 25px;
+    }
+
+    .greeting-title {
+        font-size: 32px;
+    }
+
+    .greeting-subtitle {
+        font-size: 14px;
+    }
+
+    .exp-bar-container {
+        max-width: 500px;
+    }
+}
+
+/* Tablet screens (768px to 991px) */
+@media (max-width: 991px) {
+    .home-header {
+        margin-left: 80px;
+        padding: 15px 20px;
+    }
+
+    .greeting-title {
+        font-size: 28px;
+    }
+
+    .greeting-subtitle {
+        font-size: 13px;
+    }
+
+    .header-right {
+        gap: 15px;
+    }
+
+    .guide-btn {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+
+    .exp-bar-container {
+        max-width: 450px;
+    }
+}
+
+/* Mobile screens (below 768px) */
+@media (max-width: 767px) {
+    .home-header {
+        margin-left: 0;
+        padding: 12px 15px;
+    }
+
     .header-right {
         gap: 10px;
     }
@@ -182,13 +257,62 @@
     
     .exp-bar-container {
         max-width: 100%;
+        padding: 0 5px;
+    }
+
+    .exp-info {
+        margin-right: 10px;
+    }
+
+    .exp-bar {
+        margin-right: 10px;
+    }
+
+    .guide-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    .header-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .profile-avatar {
+        width: 35px;
+        height: 35px;
     }
 }
 
-/* Adjust container margin for smaller screens */
-@media (max-width: 992px) {
+/* Small mobile screens (below 480px) */
+@media (max-width: 479px) {
     .home-header {
-        margin-left: 0; /* Remove margin on smaller screens when navbar is likely at the top */
-        padding-top: 25px; /* Add some top padding instead */
+        padding: 10px 12px;
     }
-} 
+
+    .greeting-title {
+        font-size: 20px;
+    }
+
+    .greeting-subtitle {
+        font-size: 11px;
+    }
+
+    .header-right {
+        gap: 8px;
+    }
+
+    .guide-btn {
+        padding: 3px 8px;
+        font-size: 11px;
+    }
+
+    .exp-label, .exp-value {
+        font-size: 11px;
+    }
+
+    .level-badge {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+}

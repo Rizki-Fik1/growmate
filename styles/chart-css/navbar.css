@@ -186,14 +186,6 @@
     background-color: rgba(92, 230, 164, 0.2);
 }
 
-/* Fix for chart page */
-body.navbar-hidden .container {
-    transform: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    scale: 1 !important;
-}
-
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .navbar {
@@ -263,7 +255,6 @@ body.navbar-hidden .container {
     /* Adjust container margin when navbar is hidden */
     body.navbar-hidden .container {
         margin-left: 0;
-        width: 100% !important;
     }
     
     /* Improved swipe indicator on the edge of the screen */

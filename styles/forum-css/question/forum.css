@@ -21,7 +21,6 @@ body {
 
 .container {
     flex: 1;
-    margin-left: 80px; /* Match the width of the navbar */
     display: flex;
     flex-direction: column;
     padding: 0px 30px; /* Increased horizontal padding */
@@ -31,5 +30,5 @@ body {
 /* Header wrapper */
 .header-wrapper {
     margin-top: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 0px; 
 }

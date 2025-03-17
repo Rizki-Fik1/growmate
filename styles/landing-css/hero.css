@@ -6,12 +6,19 @@
     justify-content: center;
     text-align: center;
     margin-top: 5rem;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
 }
 
 .hero-section h1 {
     display: flex;
     align-items: center;
     margin-bottom: 0;
+    justify-content: center;
 }
 
 .hero-section h1 img {
@@ -28,7 +35,7 @@
     color: #31ffa9;
 }
 
-.hero-section p {
+.hero-section .hero-tagline {
     color: #f8f8f8;
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
@@ -39,6 +46,10 @@
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 3.5rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-section p.small span {
@@ -48,6 +59,7 @@
 .hero-section .buttons {
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
 
 .hero-section button {
@@ -86,5 +98,161 @@
     height: 1rem;
     width: 1rem;
     margin-left: 0.5rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .hero-section h1 span {
+        font-size: 5rem;
+    }
+    
+    .hero-section h1 img {
+        height: 5rem;
+    }
+    
+    .hero-section .hero-tagline {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero-section {
+        margin-top: 3rem;
+    }
+    
+    .hero-section h1 span {
+        font-size: 4rem;
+        letter-spacing: 0.25rem;
+    }
+    
+    .hero-section h1 img {
+        height: 4rem;
+    }
+    
+    .hero-section .hero-tagline {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-section {
+        margin-top: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .hero-section h1 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .hero-section h1 span {
+        font-size: 3rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    .hero-section h1 img {
+        height: 3rem;
+    }
+    
+    .hero-section .hero-tagline {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .hero-section p.small {
+        font-size: 0.9rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-section .buttons {
+        gap: 1rem;
+    }
+    
+    .hero-section button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hero-section {
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .hero-section h1 span {
+        font-size: 2.2rem;
+        letter-spacing: 0.1rem;
+    }
+    
+    .hero-section h1 img {
+        height: 2.2rem;
+    }
+    
+    .hero-section .hero-tagline {
+        font-size: 1.2rem;
+    }
+    
+    .hero-section p.small {
+        font-size: 0.85rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-section .buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .hero-section button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .hero-section h1 span {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section h1 img {
+        height: 1.8rem;
+    }
+    
+    .hero-section .hero-tagline {
+        font-size: 1rem;
+    }
+}
+
+/* For landscape mode on mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        margin-top: 1rem;
+    }
+    
+    .hero-section h1 span {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section h1 img {
+        height: 2.5rem;
+    }
+    
+    .hero-section .hero-tagline {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .hero-section p.small {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-section .buttons {
+        gap: 1rem;
+    }
 }
 

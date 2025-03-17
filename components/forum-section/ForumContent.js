@@ -17,19 +17,6 @@ export const ForumContent = () => {
             popupOverlay.style.display = 'none';
         });
         
-        // Event listener untuk tombol kirim
-        sendButton.addEventListener('click', () => {
-            // Disini bisa ditambahkan logika untuk memproses pertanyaan
-            const questionText = document.querySelector('.question-input').value;
-            if (questionText.trim() !== '') {
-                alert('Pertanyaan berhasil dikirim: ' + questionText);
-                document.querySelector('.question-input').value = '';
-                popupOverlay.style.display = 'none';
-            } else {
-                alert('Silakan masukkan pertanyaan terlebih dahulu');
-            }
-        });
-        
         // Tutup popup jika user mengklik area di luar popup
         window.addEventListener('click', (e) => {
             if (e.target === popupOverlay) {

@@ -155,6 +155,7 @@
 @media screen and (max-width: 768px) {
     .card {
         padding: 20px;
+        height: 300px;
     }
     
     .card-header {
@@ -191,6 +192,14 @@
     .stat-label {
         font-size: 12px;
     }
+
+    .time-select-box-2 {
+        margin-top: 20px;
+    }
+
+    .dropdown-icon-box-2 {
+        margin-top: 20px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -210,6 +219,7 @@
     
     .card {
         padding: 15px;
+        height: 300px;
     }
     
     .card-header {

@@ -57,11 +57,13 @@
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .greeting-text {
-        font-size: 32px;
+        font-size: 28px;
+        position: relative;
+        right: 0;
     }
     
     .character-image {
-        width: 300px;
+        width: 250px;
     }
     
     .greeting-content {
@@ -75,28 +77,30 @@
     }
     
     .greeting-text {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .character-image {
         left: 15px;
-        width: 250px;
+        width: 200px;
     }
     
     .greeting-content {
-        width: 50%;
-        padding-right: 30px;
+        width: 60%;
+        padding-right: 10px;
     }
 }
 
 @media (max-width: 768px) {
     .greeting-text {
-        font-size: 24px;
+        font-size: 36px;
+        position: relative;
+        right: 80px;
     }
     
     .character-image {
         left: 10px;
-        width: 200px;
+        width: 400px;
     }
     
     .greeting-content {
@@ -118,11 +122,14 @@
     }
     
     .greeting-text {
-        font-size: 22px;
+        position: relative;
+        top: 60px;
+        font-size: 24px;
+        right: 0;
     }
     
     .character-image {
-        left: 50%;
+        left: 20%;
         transform: translateX(-50%);
         width: 180px;
     }

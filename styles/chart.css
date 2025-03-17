@@ -10,7 +10,7 @@ body {
     background-color: #030C19;
     color: white;
     padding: 0;
-    transition: margin 0.3s ease;
+    transition: none; /* Remove transition */
     min-height: 100vh;
     width: 100%;
 }
@@ -20,7 +20,7 @@ body {
     margin: 0 auto;
     margin-left: 90px; 
     padding: 20px;
-    transition: margin-left 0.3s ease;
+    transition: none; /* Remove transition */
     width: calc(100% - 90px); /* Ensure container takes full width minus navbar */
 }
 
@@ -91,15 +91,16 @@ header {
     }
     
     .container {
-        margin-left: 60px; /* Sesuai dengan lebar navbar di tablet */
+        margin-left: 0; /* Remove margin completely */
         padding: 12px;
-        width: calc(100% - 60px); /* Adjust width for tablet */
+        width: 100%; /* Always take full width */
+        max-width: 100%;
     }
     
-    /* When navbar is hidden */
+    /* When navbar is hidden or shown, container always takes full width */
     body.navbar-hidden .container {
         margin-left: 0;
-        width: 100%; /* Take full width when navbar is hidden */
+        width: 100%;
     }
     
     .logo {
@@ -118,15 +119,15 @@ header {
 
 @media screen and (max-width: 480px) {
     .container {
-        margin-left: 50px; /* Sesuai dengan lebar navbar di mobile */
+        margin-left: 0; /* Remove margin completely */
         padding: 10px;
-        width: calc(100% - 50px); /* Adjust width for mobile */
+        width: 100%; /* Always take full width */
     }
     
-    /* When navbar is hidden */
+    /* When navbar is hidden or shown, container always takes full width */
     body.navbar-hidden .container {
         margin-left: 0;
-        width: 100%; /* Take full width when navbar is hidden */
+        width: 100%;
     }
     
     .logo {
@@ -149,15 +150,15 @@ header {
 /* Fix for very small screens */
 @media screen and (max-width: 360px) {
     .container {
-        margin-left: 45px;
+        margin-left: 0; /* Remove margin completely */
         padding: 8px;
-        width: calc(100% - 45px); /* Adjust width for very small screens */
+        width: 100%; /* Always take full width */
     }
     
-    /* When navbar is hidden */
+    /* When navbar is hidden or shown, container always takes full width */
     body.navbar-hidden .container {
         margin-left: 0;
-        width: 100%; /* Take full width when navbar is hidden */
+        width: 100%;
     }
     
     .logo {
