@@ -1,4 +1,4 @@
-import { Navbar } from './components/chart-section/Navbar.js';
+import { Navbar } from './components/navbar/Navbar.js';
 import { NavbarLanding } from './components/landing-section/Navbar-landing.js';
 import { HeroSection } from './components/landing-section/Hero.js';
 import { Partners } from './components/landing-section/Partners.js';

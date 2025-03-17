@@ -1,6 +1,6 @@
 import { AIComponent } from "../components/ai-section/ai-comp.js"
 import { AINav } from "../components/ai-section/ai-nav.js"
-import { Navbar } from "../components/chart-section/Navbar.js";
+import { Navbar } from "../components/navbar/Navbar.js";
 
 export const AIPage = () => {
   const currentPath = window.location.pathname;

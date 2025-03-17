@@ -13,6 +13,8 @@
     z-index: 1000;
     overflow-y: auto;
     transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nav-back {
@@ -152,6 +154,18 @@
     opacity: 1;
 }
 
+/* Edge touch zone for swipe detection */
+.edge-touch-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    z-index: 998;
+    background: transparent;
+    pointer-events: auto;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .navbar {
@@ -159,6 +173,8 @@
         padding: 15px 0;
         transform: translateX(-100%);
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        will-change: transform;
     }
     
     .navbar.active {
@@ -166,7 +182,7 @@
     }
 
     .navbar-toggle {
-        display: flex;
+        display: none; /* Hide toggle button completely */
     }
     
     .navbar-overlay {
@@ -174,6 +190,8 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+        touch-action: pan-y;
+        will-change: opacity, visibility;
     }
     
     .navbar-overlay.active {
@@ -190,6 +208,30 @@
     /* Adjust container margin when navbar is hidden */
     body.navbar-hidden .container {
         margin-left: 0;
+    }
+    
+    /* Improved swipe indicator on the edge of the screen */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 50%;
+        left: 0;
+        width: 5px;
+        height: 50px;
+        background: linear-gradient(90deg, rgba(92, 230, 164, 0.7), transparent);
+        border-radius: 0 3px 3px 0;
+        transform: translateY(-50%);
+        z-index: 997; /* Below the touch zone but above other content */
+        opacity: 0.8;
+        pointer-events: none;
+        animation: pulseIndicator 2s infinite;
+    }
+    
+    /* Pulse animation for the swipe indicator */
+    @keyframes pulseIndicator {
+        0% { opacity: 0.8; width: 5px; }
+        50% { opacity: 0.5; width: 8px; }
+        100% { opacity: 0.8; width: 5px; }
     }
 }
 

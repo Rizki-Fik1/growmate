@@ -1,4 +1,4 @@
-import { Navbar } from '../components/chart-section/Navbar.js';
+import { Navbar } from '../components/navbar/Navbar.js';
 import { NewsHeader } from '../components/news-section/NewsHeader.js';
 import { SearchBar } from '../components/forum-section/answer/SearchBar.js';
 import { SidebarAnswer } from '../components/forum-section/answer/SidebarAnswer.js';

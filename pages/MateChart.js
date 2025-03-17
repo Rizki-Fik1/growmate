@@ -2,7 +2,7 @@ import { PinTodo } from '../components/chart-section/PinTodoCard.js';
 import { HasilTodo } from '../components/chart-section/HasilTodoCard.js';
 import { DaftarTodo } from '../components/chart-section/DaftarTodo.js';
 import { Chart } from '../components/chart-section/ChartTodo.js';
-import { Navbar } from '../components/chart-section/Navbar.js';
+import { Navbar } from '../components/navbar/Navbar.js';
 
 export const MateChart = () => {
     const currentPath = window.location.pathname;

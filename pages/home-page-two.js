@@ -5,7 +5,7 @@ import { ProgressChartCard } from "../components/home-2-section/ProgressChartCar
 import { MateAICard } from "../components/home-2-section/MateAICard.js";
 import { TodoListCard } from "../components/home-2-section/TodoListCard.js";
 import { LeaderboardCard } from "../components/home-2-section/LeaderboardCard.js";
-import { Navbar } from "../components/chart-section/Navbar.js";
+import { Navbar } from "../components/navbar/Navbar.js";
 
 // Initialize the home page
 const initHomePage = () => {
