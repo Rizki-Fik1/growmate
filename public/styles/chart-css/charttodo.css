@@ -1,0 +1,249 @@
+/* Chart Styles */
+.chart-container {
+    margin-top: 20px;
+    grid-column: span 2;
+    background-color: #030C19;
+    border-radius: 12px;
+    padding: 30px;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+.chart-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.card-title {
+    font-size: 28px;
+    color: #fff;
+    margin: 0;
+    font-weight: 600;
+}
+.card-subtitle {
+    font-size: 16px;
+    color: #9aa0ac;
+    margin: 0;
+}
+.chart-controls {
+    display: flex;
+    gap: 8px;
+}
+.chart-btn {
+    padding: 10px 15px;
+    background-color: #1d2633;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+.chart-btn.active {
+    background-color: #00B86C;
+}
+/* New wrapper to manage the chart and labels separately */
+.chart-wrapper {
+    position: relative;
+    padding: 0 40px; /* Consistent horizontal padding */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 300px; /* Total height including chart and labels */
+}
+
+/* Y-axis vertical line */
+.y-axis-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 50px); /* Full height minus label area */
+    width: 1px;
+    background-color: #182230;
+    margin-left: 40px; /* Align with left side of chart */
+    z-index: 2;
+}
+
+.chart {
+    flex: 1; /* Chart takes available space */
+    position: relative;
+    margin-bottom: 10px; /* Fixed space for labels */
+}
+.chart-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+.chart-line {
+    width: 100%;
+    height: 2px;
+    background-color: #182230;
+    position: relative;
+}
+.chart-line span {
+    position: absolute;
+    left: -20px;
+    top: -10px;
+    font-size: 16px;
+    color: #9aa0ac;
+}
+.chart-line-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.chart-svg {
+    width: 100%;
+    height: 100%;
+}
+.chart-polyline {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.chart-area {
+    opacity: 0.9;
+}
+/* Fixed height section for labels at the bottom */
+.chart-labels {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; /* Push to bottom of flex container */
+}
+.chart-label {
+    flex: 1;
+    color: #9aa0ac;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* Responsive styles for chart */
+@media screen and (max-width: 1024px) {
+    .chart-container {
+        grid-column: span 2;
+        padding: 25px;
+    }
+    
+    .chart-wrapper {
+        height: 250px;
+        padding: 0 30px;
+    }
+    
+    .card-title {
+        font-size: 24px;
+    }
+    
+    .card-subtitle {
+        font-size: 14px;
+    }
+    
+    .chart-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .chart-container {
+        grid-column: span 1;
+        padding: 20px;
+    }
+    
+    .chart-header {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .chart-controls {
+        align-self: flex-start;
+    }
+    
+    .chart-wrapper {
+        height: 220px;
+        padding: 0 20px;
+    }
+    
+    .y-axis-line {
+        margin-left: 20px;
+    }
+    
+    .chart-line span {
+        font-size: 14px;
+        left: -15px;
+    }
+    
+    .chart-label {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chart-container {
+        padding: 15px;
+    }
+    
+    .chart-wrapper {
+        height: 180px;
+        padding: 0 15px;
+    }
+    
+    .y-axis-line {
+        margin-left: 15px;
+    }
+    
+    .card-title {
+        font-size: 20px;
+    }
+    
+    .card-subtitle {
+        font-size: 12px;
+    }
+    
+    .chart-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    .chart-line span {
+        font-size: 12px;
+        left: -12px;
+        top: -8px;
+    }
+    
+    .chart-label {
+        font-size: 12px;
+    }
+}
+
+.chart-vgrid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.chart-vline {
+    width: 1px;
+    height: 100%;
+    background-color: #182230;
+}

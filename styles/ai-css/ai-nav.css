@@ -1,0 +1,75 @@
+.ai-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px;
+}
+
+/* Komponen Navbar Kiri */
+.ai-navbar-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.ai-navbar-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.ai-title-one {
+  color: white;
+  font-size: 25px;
+  font-weight: normal;
+}
+
+.ai-title-two {
+  color: #00FF95;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Komponen Navbar Kanan */
+.ai-navbar-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.ai-title-three {
+  color: white;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.ai-title-four {
+  background-color: #1B222C;
+  color: white;
+  padding: 6px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.ai-title-four:hover {
+  background-color: #283240;
+  transition: .2s ease-in-out;
+}
+
+.ai-navbar-line {
+  background-color: #00FF95;
+  width: 60px;
+  height: 2.5px;
+  position: relative;
+  left: 2px;
+}
+
+.ai-icon-notif {
+  color: white;
+  height: 24px;
+}

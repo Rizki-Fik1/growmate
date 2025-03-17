@@ -21,7 +21,8 @@ export const LoginComponent = () => {
         }
 
         setTimeout(() => {
-          window.location.hash = "home";
+          // Redirect to home.html directly instead of using hash
+          window.location.href = "home.html";
 
           setTimeout(() => {
             const preloader = document.getElementById("preloader");

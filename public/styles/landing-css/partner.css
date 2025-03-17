@@ -1,0 +1,26 @@
+/* Partners styles */
+.partners {
+    margin-top: 3.5rem;
+}
+
+.partners p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.partners .partner-logos {
+    display: flex;
+    align-items: center;
+}
+
+.partners .partner-logos img {
+    height: 3rem;
+    width: 3rem;
+    margin-right: -1rem;
+}
+
+.partners .partner-logos span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 1rem;
+}

@@ -4,7 +4,7 @@ export const HeroSection = () => {
             window.location.href = '#features';
         });
         document.querySelector('.get-started').addEventListener('click', () => {
-            window.location.href = '/chart.html';
+            window.location.href = '/login.html ';
         });
     })
     return `

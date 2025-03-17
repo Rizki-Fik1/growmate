@@ -1,0 +1,151 @@
+/* About Component Styles */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    column-gap: 240px; /* Specifically targets the horizontal spacing */
+    padding: 40px 0;
+    margin-top: 5rem;
+}
+
+.about-left-section {
+    flex: 1;
+    max-width: 400px;
+}
+
+.about-right-section {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 20px;
+}
+
+.about-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-align: left;
+    font-size: 35px;
+}
+
+.about-title span {
+    color: #00ff9d;
+    display: block;
+}
+
+.about-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.about-bottom-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-benefit {
+    display: flex;
+    align-items: center;
+}
+
+.about-benefit-line {
+    width: 3px;
+    height: 40px;
+    background-color: #00ff9d;
+    margin-right: 10px;
+}
+
+.about-benefit-text {
+    font-size: 14px;
+}
+
+.about-benefit-text strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.about-get-started {
+    display: inline-flex;
+    align-items: center;
+    background-color: #00ff9d;
+    color: #0a192f;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-get-started svg {
+    margin-left: 8px;
+}
+
+.about-card {
+    background-color: #030C19; /* Slightly darker than the previous blue */
+    border-radius: 16px; /* Slightly rounded corners */
+    padding: 25px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.about-card-icon {
+    width: 40px;
+    height: 40px;
+    color: #00ff9d; /* Neon green color for icons */
+}
+
+.about-card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.about-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.about-card-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .about-left-section {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .about-right-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-right-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-bottom-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .about-benefit {
+        margin-bottom: 20px;
+    }
+}

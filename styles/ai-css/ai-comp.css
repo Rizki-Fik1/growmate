@@ -1,0 +1,138 @@
+.ai-comp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 100px;
+}
+
+.ai-comp-logo {
+  background: linear-gradient(to bottom, #00AF66, #2AC182);
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.ai-icon {
+  font-weight: bolder;
+  color: #030C19;
+}
+
+.ai-main-title-one {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ai-main-title-one span {
+  color: #00FF95;
+}
+
+.ai-main-title-two {
+  color: white;
+  font-size: 15px;
+  font-weight: lighter;
+  padding: 0 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ai-comp-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 45px;
+  flex-wrap: wrap;
+}
+
+.ai-card-one, .ai-card-two, .ai-card-three {
+  background: linear-gradient(45deg, #182230, #0A1422);
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.ai-card-one:hover, .ai-card-two:hover, .ai-card-three:hover {
+  transform: scale(1.05);
+}
+
+.ai-icon-chat, .ai-icon-hat, .ai-icon-clock {
+  background-color: rgba(0, 255, 149, 0.3);
+  color: #00FF95;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.ai-card-title-one, .ai-card-title-two, .ai-card-title-three {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ai-card-text-one, .ai-card-text-two, .ai-card-text-three {
+  color: white;
+  font-size: 14px;
+  font-weight: lighter;
+  padding: 0 10px;
+  opacity: 0.7;
+}
+
+.ai-search {
+  background-color: #15202F;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 600px;
+}
+
+.ai-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  opacity: 0.7;
+  padding: 8px;
+}
+
+.ai-search-input::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+.ai-search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ai-icon-send {
+  background-color: #00AF66;
+  color: #030C19;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 3px 5px;
+}
+
+.ai-icon-send:hover {
+  background-color: #00FF95;
+  transition: .2s ease-in-out;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GrowMates - Home</title>
+
+  <!-- Import CSS -->
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="/styles/home-two-css/home-two.css">
+  
+  <!-- Component-specific CSS -->
+  <link rel="stylesheet" href="/styles/home-two-css/home-top-ai.css">
+  <link rel="stylesheet" href="/styles/home-two-css/home-top-chart.css">
+  <link rel="stylesheet" href="/styles/home-two-css/bottom-home-ai.css">
+  <link rel="stylesheet" href="/styles/home-two-css/bottom-home-todo.css">
+  <link rel="stylesheet" href="/styles/chart-css/navbar.css">
+  
+  <!-- Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/icon-dummy1.png">
+</head>
+<body>
+  <div id="app"></div>
+  
+  <script type="module">
+    import { HomePageTwo } from './pages/home-page-two.js';
+    
+    // Function to render the home page
+    function renderHomePage() {
+      const appElement = document.getElementById('app');
+      appElement.innerHTML = HomePageTwo();
+    }
+    
+    // Render the home page when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', renderHomePage);
+  </script>
+
+<script src="scripts/navbar.js"></script>
+</body>
+</html>

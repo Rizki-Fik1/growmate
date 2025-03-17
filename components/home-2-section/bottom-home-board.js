@@ -1,48 +1,88 @@
 export const BottomHomeBoard = () => {
   return`
   <div class="bottom-home-board">
-    <p class="bottom-home-board-title">Leaderboard</p>
-    <div class="bottom-home-board-category">
-      <p class="category-one">Teman</p>
-      <p class="category-two">Global</p>
+    <div class="bottom-home-board-header">
+      <h3 class="bottom-home-board-title">Leaderboard</h3>
     </div>
-    <div class="bottom-home-board-main">
-      <div class="home-leaderboard-list">
-        <div class="home-leaderboard-list-one">
-          <p class="board-rank-one">2</p>
-          <img src="assets/img/Group.png" alt="img-one" class="board-img-one"/>
-          <p class="board-name-one">Capt_Rell</p>
+    
+    <div class="bottom-home-board-content">
+      <div class="board-filter">
+        <span class="board-filter-label active">Minggu Ini</span>
+        <span class="board-filter-label">Bulan Ini</span>
+        <span class="board-filter-label">Tahun Ini</span>
+      </div>
+      
+      <div class="board-list">
+        <div class="board-item">
+          <div class="board-rank">1</div>
+          <div class="board-user">
+            <div class="board-user-avatar">
+              <img src="/assets/img/avatar-1.png" alt="User Avatar">
+            </div>
+            <div class="board-user-info">
+              <h4 class="board-user-name">Budi Santoso</h4>
+              <p class="board-user-title">UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="board-score">98</div>
         </div>
-
-        <div class="home-leaderboard-list-two">
-          <p class="board-rank-two">1</p>
-          <img src="assets/img/Group.png" alt="img-two" class="board-img-two"/>
-          <p class="board-name-two">El Pape</p>
+        
+        <div class="board-item">
+          <div class="board-rank">2</div>
+          <div class="board-user">
+            <div class="board-user-avatar">
+              <img src="/assets/img/avatar-2.png" alt="User Avatar">
+            </div>
+            <div class="board-user-info">
+              <h4 class="board-user-name">Siti Aminah</h4>
+              <p class="board-user-title">Frontend Developer</p>
+            </div>
+          </div>
+          <div class="board-score">95</div>
         </div>
-
-        <div class="home-leaderboard-list-three">
-          <p class="board-rank-three">3</p>
-          <img src="assets/img/Group.png" alt="img-three" class="board-img-three"/>
-          <p class="board-name-three">Sigmaffan</p>
+        
+        <div class="board-item">
+          <div class="board-rank">3</div>
+          <div class="board-user">
+            <div class="board-user-avatar">
+              <img src="/assets/img/avatar-3.png" alt="User Avatar">
+            </div>
+            <div class="board-user-info">
+              <h4 class="board-user-name">Ahmad Rizki</h4>
+              <p class="board-user-title">Backend Developer</p>
+            </div>
+          </div>
+          <div class="board-score">92</div>
+        </div>
+        
+        <div class="board-item">
+          <div class="board-rank">4</div>
+          <div class="board-user">
+            <div class="board-user-avatar">
+              <img src="/assets/img/avatar-4.png" alt="User Avatar">
+            </div>
+            <div class="board-user-info">
+              <h4 class="board-user-name">Dewi Putri</h4>
+              <p class="board-user-title">Product Manager</p>
+            </div>
+          </div>
+          <div class="board-score">87</div>
+        </div>
+        
+        <div class="board-item">
+          <div class="board-rank">5</div>
+          <div class="board-user">
+            <div class="board-user-avatar">
+              <img src="/assets/img/avatar-5.png" alt="User Avatar">
+            </div>
+            <div class="board-user-info">
+              <h4 class="board-user-name">Rudi Hartono</h4>
+              <p class="board-user-title">Data Analyst</p>
+            </div>
+          </div>
+          <div class="board-score">85</div>
         </div>
       </div>
-
-      <div class="ext-leaderboard-one">
-        <p class="ext-board-one-num">4</p>
-        <p class="ext-board-one-name">Restu33</p>
-        <p class="ext-board-one-lev">LV.30</p>
-      </div>
-
-      <div class="ext-leaderboard-two">
-        <p class="ext-board-two-num">5</p>
-        <p class="ext-board-two-name">NopalBy</p>
-        <p class="ext-board-two-lev">LV.27</p>
-      </div>
-
-      <div class="ext-leaderboard-three">
-        <p class="ext-board-three-num">6</p>
-        <p class="ext-board-three-name">HarryGang</p>
-        <p class="ext-board-three-lev">LV.26</p></div>
     </div>
   </div>
   `

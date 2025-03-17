@@ -2,7 +2,7 @@ export const HomeFeature = () => {
   return `
   <div class="home-feature">
     <div class="feature-wrapper-one">
-      <div class="home-feature-one" onclick="window.location.hash='ai'">
+      <div class="home-feature-one" onclick="window.location.href='chart.html'">
         <img src="assets/img/Maskgroup1.png" alt="fitur-image-1"/>
       </div>
       <p class="name-feature-one">Mate Chart</p>

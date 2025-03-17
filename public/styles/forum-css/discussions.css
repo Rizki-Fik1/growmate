@@ -1,0 +1,52 @@
+/* Top discussions styles */
+.top-discussions {
+    margin-left: 25px;
+    width: 320px;
+    height: 90%;
+}
+
+.top-discussions h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.top-discussions span {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #00FF95;
+}
+
+.discussion-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #1A2A3A;
+    padding-bottom: 10px;
+}
+
+.discussion-item p {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+5
+.selengkapnya {
+    color: #00FF95;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.topic-tag {
+    display: inline-block;
+    background-color: #1A2A3A;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.topic-tag.active {
+    background-color: #00FF95;
+    color: #030C19;
+} 

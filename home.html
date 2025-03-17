@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GrowMates - Home</title>
+    
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="styles/home-css/home.css">
+    <link rel="stylesheet" href="styles/home-css/home-nav.css">
+    <link rel="stylesheet" href="styles/home-css/home-left.css">
+    <link rel="stylesheet" href="styles/home-css/home-right.css">
+    <link rel="stylesheet" href="styles/landing-css/footer.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/G.png">
+    
+    <style>
+        /* Inline critical CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0A0E12;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        #root {
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- JavaScript Imports -->
+    <script type="module">
+        import { HomePage } from './pages/home-page.js';
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            const root = document.getElementById('root');
+            root.innerHTML = HomePage();
+            
+            // Add event listeners for interactive elements
+            const tellStoryBtn = document.querySelector('.tell-story-btn');
+            if (tellStoryBtn) {
+                tellStoryBtn.addEventListener('click', () => {
+                    alert('Story feature coming soon!');
+                });
+            }
+            
+            // Feature animations
+            const features = document.querySelectorAll(".home-feature-one, .home-feature-two, .home-feature-three");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            features.forEach(feature => {
+                observer.observe(feature);
+            });
+
+            // Enhanced smooth scroll for feature button
+            const featureBtn = document.querySelector('.feature-option-title');
+            const featureSection = document.querySelector('#feature-main');
+            
+            if (featureBtn && featureSection) {
+                featureBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const offset = 50;
+                    const targetPosition = featureSection.getBoundingClientRect().top + window.scrollY;
+                    
+                    window.scrollTo({
+                        top: targetPosition + offset,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

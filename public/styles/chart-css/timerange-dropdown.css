@@ -1,0 +1,102 @@
+/* Time Range Dropdown Styles */
+.time-range {
+    position: relative;
+}
+
+.time-select-box, .time-select-box-2 {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-icon-box, .dropdown-icon-box-2 {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-icon-box svg, .dropdown-icon-box-2 svg {
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu for HasilTodo */
+.time-select-box-2 + .time-range-dropdown,
+.dropdown-icon-box-2 + .time-range-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #182230;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+/* Dropdown menu for PinTodo */
+.time-select-box + .time-range-dropdown,
+.dropdown-icon-box + .time-range-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #00AF66;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.time-range-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for HasilTodo dropdown */
+.time-select-box-2 ~ .time-range-dropdown {
+    background: #182230;
+}
+
+/* Style for PinTodo dropdown */
+.time-select-box ~ .time-range-dropdown {
+    background: #00AF66;
+}
+
+.time-range-option {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover styles for HasilTodo dropdown options */
+.time-select-box-2 ~ .time-range-dropdown .time-range-option:hover {
+    background-color: #2A3847;
+}
+
+/* Hover styles for PinTodo dropdown options */
+.time-select-box ~ .time-range-dropdown .time-range-option:hover {
+    background-color: #00C853;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .time-range-option {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .time-range-option {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+} 

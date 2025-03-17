@@ -1,0 +1,158 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #030C19;
+    color: white;
+    padding: 0;
+    transition: margin 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-left: 90px; 
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold
+}
+
+.logo span {
+    color: #00FF95;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1c2128;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .container {
+        margin-left: 60px; /* Sesuai dengan lebar navbar di tablet */
+        padding: 12px;
+    }
+    
+    /* When navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    /* Ensure chart spans full width on mobile */
+    .chart-container {
+        grid-column: span 1 !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin-left: 50px; /* Sesuai dengan lebar navbar di mobile */
+        padding: 10px;
+    }
+    
+    /* When navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
+    }
+    
+    .logo {
+        font-size: 22px;
+    }
+    
+    .card-title {
+        font-size: 18px;
+    }
+    
+    .card-subtitle {
+        font-size: 13px;
+    }
+    
+    .main-layout {
+        gap: 12px;
+    }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 360px) {
+    .container {
+        margin-left: 45px;
+        padding: 8px;
+    }
+    
+    /* When navbar is hidden */
+    body.navbar-hidden .container {
+        margin-left: 0;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .card {
+        padding: 12px;
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "growmates",
+  "version": "1.0.0",
+  "description": "Growmates - A platform for growth and community",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "keywords": [
+    "growmates",
+    "community",
+    "forum",
+    "chart",
+    "news"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+} 

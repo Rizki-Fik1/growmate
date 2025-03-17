@@ -1,0 +1,107 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #030C19;
+}
+
+.ai-content-wrapper {
+  margin-left: 80px; /* Adjust for navbar width */
+}
+
+@media screen and (max-width: 768px) {
+  .ai-content-wrapper {
+    margin-left: 0;
+  }
+}
+
+/* AI Page Specific Styles */
+.ai-wrapper {
+  display: block;
+  background-color: #030C19;
+  position: relative;
+  z-index: 0;
+}
+
+.ai-pages {
+  display: block;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.blurry-dot-ai-one {
+  position: absolute;
+  left: 250px;
+  bottom: 250px;
+  width: 120px;
+  height: 120px;
+  background-color: #00FF95;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: flicker 3.5s infinite ease-in-out;
+  z-index: -1;
+}
+
+.blurry-dot-ai-two {
+  position: absolute;
+  right: 290px;
+  bottom: 150px;
+  width: 120px;
+  height: 120px;
+  background-color: #00FF95;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: flicker-two 3s infinite ease-in-out;
+  z-index: -1;
+}
+
+.blurry-dot-ai-three {
+  position: absolute;
+  right: 620px;
+  top: 100px;
+  width: 90px;
+  height: 90px;
+  background-color: #00FF95;
+  border-radius: 50%;
+  filter: blur(900px);
+  animation: flicker-two 5s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* Animation keyframes */
+@keyframes flicker {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes flicker-two {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}

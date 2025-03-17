@@ -1,0 +1,158 @@
+/* Wrapper utama AI Chat agar 100vh */
+.ai-chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #030C19;
+  position: relative;
+  z-index: 0;
+}
+
+/* Container chat, fleksibel tanpa scroll */
+.chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  background-color: #030C19;
+}
+
+.chat-input-container {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #15202F;
+  border-radius: 10px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  width: 40%;
+}
+
+.ai-icon-sending {
+  background-color: #00AF66;
+  color: #030C19;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+.ai-icon-sending:hover {
+  background-color: #00FF95;
+  transition: .2s ease-in-out;
+}
+
+#chat-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  opacity: 0.7;
+  padding: 8px;
+}
+
+#chat-input::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#send-button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Container utama tiap pesan */
+.message-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+  gap: 15px;
+}
+
+/* Avatar (Gaya untuk user & bot) */
+.user-avatar,
+.bot-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Posisi pesan user (kanan) */
+.user-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-message {
+  background-color: #182230;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 15px;
+  max-width: 70%;
+  text-align: left;
+  margin-left: 50px;
+}
+
+/* Posisi pesan bot (kiri) */
+.bot-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bot-message {
+  background-color: #0A1422;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 15px;
+  max-width: 70%;
+  text-align: left;
+  margin-right: 50px;
+}
+
+/* Style untuk teks info di bawah input */
+.chat-hint {
+  position: absolute;
+  bottom: 10px; /* Jarak dari bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Animasi fade-in dan slide-up */
+@keyframes botReply {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Terapkan animasi ke bot-message */
+.bot-message {
+  animation: botReply 0.4s ease-out;
+}

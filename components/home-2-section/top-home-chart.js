@@ -1,6 +1,8 @@
 export const TopHomeChart = () => {
   setTimeout(() => {
     const canvas = document.getElementById('myChart');
+    if (!canvas) return;
+    
     const ctx = canvas.getContext('2d');
 
     const lastWeekData = [10, 15, 12, 18, 20, 22, 25];
@@ -15,113 +17,114 @@ export const TopHomeChart = () => {
     setTimeout(() => {
       const progressElement = document.getElementById("progress-percentage");
       if (progressElement) {
-        progressElement.innerText = `${percentageIncrease.toFixed(1)}%`;
+        progressElement.innerText = `${Math.abs(percentageIncrease).toFixed(1)}%`;
       }
     }, 100);
 
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'],
+        labels: ['Senin\n21 Jan', 'Selasa\n22 Jan', 'Rabu\n23 Jan', 'Kamis\n24 Jan', 'Jum\'at\n25 Jan', 'Sabtu\n26 Jan', 'Minggu\n27 Jan'],
         datasets: [
           {
             label: 'Minggu Lalu',
             data: lastWeekData,
-            backgroundColor: 'rgba(87, 207, 254, 0.2)', // Warna lebih soft
-            borderColor: '#57CFFE',
-            fill: true,
-            tension: 0.4,
+            backgroundColor: 'rgba(87, 207, 254, 0.2)',
+            borderColor: 'rgba(87, 207, 254, 1)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(87, 207, 254, 1)',
+            pointBorderColor: '#fff',
             pointRadius: 4,
+            tension: 0.4,
+            fill: true
           },
           {
             label: 'Minggu Ini',
             data: thisWeekData,
-            backgroundColor: 'rgba(0, 255, 161, 0.2)', // Warna lebih soft
-            borderColor: '#00FFA1',
-            fill: true,
-            tension: 0.4,
+            backgroundColor: 'rgba(0, 255, 149, 0.2)',
+            borderColor: 'rgba(0, 255, 149, 1)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(0, 255, 149, 1)',
+            pointBorderColor: '#fff',
             pointRadius: 4,
-          },
-        ],
+            tension: 0.4,
+            fill: true
+          }
+        ]
       },
       options: {
         responsive: true,
-        animation: { duration: 500 },
+        maintainAspectRatio: false,
         plugins: {
           legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-              font: {
-                size: 12,
-                weight: 'normal',
-              },
-              color: "rgba(255, 255, 255, 0.7)", // Warna lebih soft
-              padding: 15,
-            },
+            display: false
           },
           tooltip: {
-            mode: 'index',
-            intersect: false,
-            backgroundColor: "rgba(255, 255, 255, 0.9)",
-            titleColor: "#000",
-            bodyColor: "#000",
-            borderColor: "#ddd",
-            borderWidth: 1,
-          },
+            backgroundColor: 'rgba(10, 20, 34, 0.8)',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            padding: 10,
+            cornerRadius: 8
+          }
         },
         scales: {
-          x: { 
-            grid: { color: "rgba(255, 255, 255, 0.1)" },
-            ticks: {
-              color: "#FFF",
-              font: {
-                size: 14,
-                weight: 'bold',
-              },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)',
+              drawBorder: false
             },
-          },
-          y: { 
-            max: 25, 
-            grid: { color: "rgba(255, 255, 255, 0.1)" },
             ticks: {
-              color: "#FFF",
+              color: '#fff',
               font: {
-                size: 14,
-                weight: 'bold',
-              },
+                size: 12
+              }
+            }
+          },
+          x: {
+            grid: {
+              display: false
             },
-          },
-        },
-        elements: {
-          line: {
-            borderWidth: 2, // Garis lebih tebal
-          },
-          point: {
-            radius: 5,
-            backgroundColor: "#fff",
-            borderWidth: 2,
-          },
-        },
-      },
+            ticks: {
+              color: '#fff',
+              font: {
+                size: 12
+              }
+            }
+          }
+        }
+      }
     });
-  }, 0);
+  }, 100);
 
   return `
-    <div class="top-home-chart-section">
-      <div class="top-home-info">
-        <p class="top-home-title-one">Progres Harian Kamu</p>
-        <div class="top-home-progres">
-          <p class="top-home-title-two">Progres Info:</p>
-          <div class="progress-container">
-            <svg width="25" height="25" fill="#00FFA1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-              <path d="m216-160-56-56 464-464H360v-80h400v400h-80v-264L216-160Z"/>
-            </svg>
-            <span id="progress-percentage">0%</span> 
-          </div>
+  <div class="top-home-chart-content">
+    <div class="chart-header">
+      <h2 class="chart-title">Progres Harian Kamu</h2>
+      <div class="chart-info">
+        <span class="info-label">Progress Info:</span>
+        <div class="percentage-container">
+          <svg class="trend-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00FF95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+            <path d="M17 6h6v6"></path>
+          </svg>
+          <span id="progress-percentage" class="percentage-value">5.25%</span>
         </div>
       </div>
+    </div>
+    <div class="chart-container">
       <canvas id="myChart"></canvas>
     </div>
+    <div class="chart-legend">
+      <div class="legend-item">
+        <span class="legend-color" style="background-color: rgba(87, 207, 254, 1)"></span>
+        <span class="legend-label">Minggu Ini</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="background-color: rgba(0, 255, 149, 1)"></span>
+        <span class="legend-label">Minggu Lalu</span>
+      </div>
+    </div>
+  </div>
   `;
 };

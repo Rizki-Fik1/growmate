@@ -108,8 +108,7 @@ function addEventListeners() {
             element.style.transform = 'translateY(0)';
         }, 300 * index);
     });
-
-    // Hover effect untuk tombol
+    
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
         button.addEventListener('mouseover', () => {
@@ -120,7 +119,6 @@ function addEventListeners() {
         });
     });
 
-    // Event listener untuk navigasi di navbar
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -146,15 +144,12 @@ function addEventListeners() {
                         behavior: 'smooth'
                     });
                     break;
-                // Tambahkan case lain sesuai kebutuhan
             }
         });
     });
 }
 
-// Jalankan fungsi setelah DOM selesai dimuat
 document.addEventListener('DOMContentLoaded', () => {
-    // Render halaman berdasarkan URL
     const currentPath = window.location.pathname;
     
     if (currentPath.endsWith('chart.html')) {
@@ -165,6 +160,40 @@ document.addEventListener('DOMContentLoaded', () => {
         renderLanding();
     }
     
-    // Tambahkan event listener
     addEventListeners();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const features = document.querySelectorAll(".home-feature-one, .home-feature-two, .home-feature-three");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+  
+    features.forEach(feature => {
+      observer.observe(feature);
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".feature-option-title");
+    const featureSection = document.querySelector("#feature-main");
+  
+    if (button && featureSection) {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+  
+        const offset = 50;
+        const targetPosition = featureSection.getBoundingClientRect().top + window.scrollY;
+        
+        window.scrollTo({
+          top: targetPosition + offset,
+          behavior: "smooth",
+        });
+      });
+    }
+  });

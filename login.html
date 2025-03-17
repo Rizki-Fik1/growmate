@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GrowMates - Login</title>
+
+  <!-- Import CSS -->
+  <link rel="stylesheet" href="/styles/login-css/login-comp.css">
+  <link rel="stylesheet" href="/styles/login-css/login-nav.css">
+  <link rel="stylesheet" href="/styles/login-css/login.css">
+</head>
+<body>
+  <div id="app"></div>
+  
+  <script type="module">
+    import { LoginPage } from './pages/login-page.js';
+    
+    // Function to render the login page
+    function renderLoginPage() {
+      const appElement = document.getElementById('app');
+      appElement.innerHTML = LoginPage();
+    }
+    
+    // Render the login page when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', renderLoginPage);
+  </script>
+</body>
+</html>
