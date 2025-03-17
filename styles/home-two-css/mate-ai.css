@@ -1,0 +1,173 @@
+/* Mate AI Card styles for Home-2 page */
+.mate-ai-card {
+    background-color: #0F1A2A;
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mate-ai-header {
+    margin-bottom: 12px;
+}
+
+.mate-ai-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.mate-ai-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.mate-ai-prompt {
+    font-size: 28px;
+    font-weight: 700;
+    color: #7AA0C9;
+    margin: 20px 0 30px 0;
+    text-align: center;
+}
+
+.mate-ai-features {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+}
+
+.feature-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    width: 1px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(15px);
+    z-index: 0;
+}
+
+.feature-item:last-child::after {
+    display: none;
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #7AA0C9;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.feature-text {
+    font-size: 14px;
+    color: #7AA0C9;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.mate-ai-input-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 10px 14px;
+    margin-top: auto;
+    margin-bottom: 12px;
+}
+
+.mate-ai-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    padding: 0;
+}
+
+.mate-ai-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mate-ai-send-btn {
+    background: #7AA0C9;
+    border: none;
+    color: #0F1A2A;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.mate-ai-send-btn:hover {
+    background-color: #8BB0D9;
+}
+
+.mate-ai-disclaimer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mate-ai-disclaimer p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.important-text {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .mate-ai-card {
+        height: 260px;
+    }
+    
+    .mate-ai-prompt {
+        font-size: 24px;
+        margin: 15px 0 20px 0;
+    }
+    
+    .mate-ai-features {
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .feature-item::after {
+        height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-text {
+        font-size: 13px;
+    }
+    
+    .mate-ai-features {
+        padding: 0 10px;
+    }
+} 

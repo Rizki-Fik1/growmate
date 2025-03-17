@@ -1,0 +1,194 @@
+/* Header styles for Home-2 page */
+.home-header {
+    background-color: transparent;
+    padding: 15px 20px;
+    border-bottom: none;
+    margin-left: 80px; /* Add margin to prevent overlap with side navbar */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+/* New greeting header styles */
+.greeting-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.user-name {
+    color: var(--accent-green);
+}
+
+.greeting-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Remove old logo styles */
+.logo {
+    display: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.support-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.support-link:hover {
+    color: var(--accent-green);
+}
+
+.guide-btn {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-light);
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guide-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.header-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-green);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Experience bar styles */
+.exp-bar-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding: 0 10px;
+    max-width: 500px; /* Limit the width of the exp bar container */
+}
+
+.exp-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.exp-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.exp-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.exp-bar {
+    flex: 1;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.exp-progress {
+    height: 100%;
+    background: var(--G2, linear-gradient(180deg, #00AF66 0%, #2AC182 100%));
+    border-radius: 4px;
+}
+
+.level-badge {
+    border-radius: 7px;
+    background: var(--G2, linear-gradient(180deg, #00AF66 0%, #2AC182 100%));
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-right {
+        gap: 10px;
+    }
+    
+    .support-link {
+        display: none;
+    }
+    
+    .greeting-title {
+        font-size: 24px;
+    }
+    
+    .greeting-subtitle {
+        font-size: 12px;
+    }
+    
+    .exp-bar-container {
+        max-width: 100%;
+    }
+}
+
+/* Adjust container margin for smaller screens */
+@media (max-width: 992px) {
+    .home-header {
+        margin-left: 0; /* Remove margin on smaller screens when navbar is likely at the top */
+        padding-top: 25px; /* Add some top padding instead */
+    }
+} 
