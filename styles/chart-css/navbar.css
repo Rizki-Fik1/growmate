@@ -24,6 +24,8 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* Remove tap highlight on mobile */
+    touch-action: manipulation; /* Improve touch behavior */
 }
 
 .nav-item {
@@ -39,6 +41,8 @@
     transition: all 0.3s ease;
     position: relative;
     z-index: 1002; /* Ensure it's above the overlay */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* Remove tap highlight on mobile */
+    touch-action: manipulation; /* Improve touch behavior */
 }
 
 .nav-item.active {
@@ -166,6 +170,30 @@
     pointer-events: auto;
 }
 
+/* Touch-specific styles */
+.touch-device .nav-item,
+.touch-device .nav-back {
+    transition: transform 0.15s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.touch-device .nav-item.touch-active,
+.touch-device .nav-back.touch-active {
+    transform: scale(0.95);
+    background-color: rgba(32, 46, 65, 0.8);
+}
+
+.touch-device .nav-item.active.touch-active {
+    background-color: rgba(92, 230, 164, 0.2);
+}
+
+/* Fix for chart page */
+body.navbar-hidden .container {
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    scale: 1 !important;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .navbar {
@@ -203,11 +231,39 @@
         width: 40px;
         height: 40px;
         margin-bottom: 10px;
+        position: relative;
+    }
+    
+    /* Add touch target extender for better touch area */
+    .nav-item::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        z-index: -1;
+    }
+    
+    .nav-back {
+        position: relative;
+    }
+    
+    /* Add touch target extender for back button */
+    .nav-back::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        z-index: -1;
     }
     
     /* Adjust container margin when navbar is hidden */
     body.navbar-hidden .container {
         margin-left: 0;
+        width: 100% !important;
     }
     
     /* Improved swipe indicator on the edge of the screen */
@@ -232,6 +288,18 @@
         0% { opacity: 0.8; width: 5px; }
         50% { opacity: 0.5; width: 8px; }
         100% { opacity: 0.8; width: 5px; }
+    }
+    
+    /* Ensure navigation items have proper feedback on touch */
+    .nav-item:active,
+    .nav-back:active {
+        transform: scale(0.95);
+        background-color: rgba(32, 46, 65, 0.8);
+    }
+    
+    /* Ensure active items have proper feedback */
+    .nav-item.active:active {
+        background-color: rgba(92, 230, 164, 0.2);
     }
 }
 

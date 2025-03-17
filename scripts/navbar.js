@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Detect touch device
+    const isTouchDevice = ('ontouchstart' in window) || 
+                          (navigator.maxTouchPoints > 0) || 
+                          (navigator.msMaxTouchPoints > 0);
+    
+    // Add class to body for touch-specific styling
+    if (isTouchDevice) {
+        document.body.classList.add('touch-device');
+    }
+    
     // Load Hammer.js dynamically if it's not already loaded
     if (typeof Hammer === 'undefined') {
         const hammerScript = document.createElement('script');
@@ -375,46 +385,154 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         
-        // Handle navigation item clicks
+        // Remove any existing event listeners to prevent duplicates
         navItems.forEach(item => {
-            // Only add event listener if it doesn't already have one
-            if (!item.hasAttribute('data-nav-initialized')) {
-                item.setAttribute('data-nav-initialized', 'true');
-                
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Remove active class from all items
-                    navItems.forEach(navItem => navItem.classList.remove('active'));
-                    
-                    // Add active class to clicked item
-                    this.classList.add('active');
-                    
-                    // Get path from data attribute
-                    const path = this.getAttribute('data-path');
-                    console.log('Nav item clicked, path:', path);
-                    
-                    // Navigate to the path
-                    navigateTo(path);
-                });
+            const clone = item.cloneNode(true);
+            if (item.parentNode) {
+                item.parentNode.replaceChild(clone, item);
             }
         });
         
-        // Handle back button
-        if (navBack && !navBack.hasAttribute('data-nav-initialized')) {
-            navBack.setAttribute('data-nav-initialized', 'true');
+        // Get fresh references after cloning
+        const freshNavItems = document.querySelectorAll('.nav-item');
+        
+        // Handle navigation item clicks with improved touch handling
+        freshNavItems.forEach(item => {
+            // Add data attribute to mark as initialized
+            item.setAttribute('data-nav-initialized', 'true');
             
-            navBack.addEventListener('click', function(e) {
+            // Create a navigation handler function
+            const handleNavigation = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
+                // Remove active class from all items
+                freshNavItems.forEach(navItem => navItem.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Get path from data attribute
                 const path = this.getAttribute('data-path');
-                console.log('Back button clicked, path:', path);
+                console.log(`Nav item activated, path:`, path);
                 
                 // Navigate to the path
                 navigateTo(path);
-            });
+            };
+            
+            // Add click event for all devices
+            item.addEventListener('click', handleNavigation);
+            
+            // For touch devices, add specific touch handling
+            if (isTouchDevice) {
+                // Track if this is a tap or a swipe
+                let touchStartX = 0;
+                let touchStartY = 0;
+                let isTap = false;
+                
+                item.addEventListener('touchstart', function(e) {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                    isTap = true;
+                    this.classList.add('touch-active');
+                }, { passive: true });
+                
+                item.addEventListener('touchmove', function(e) {
+                    // If moved more than a small threshold, it's not a tap
+                    const touchX = e.touches[0].clientX;
+                    const touchY = e.touches[0].clientY;
+                    const deltaX = Math.abs(touchX - touchStartX);
+                    const deltaY = Math.abs(touchY - touchStartY);
+                    
+                    if (deltaX > 10 || deltaY > 10) {
+                        isTap = false;
+                        this.classList.remove('touch-active');
+                    }
+                }, { passive: true });
+                
+                item.addEventListener('touchend', function(e) {
+                    this.classList.remove('touch-active');
+                    if (isTap) {
+                        handleNavigation.call(this, e);
+                    }
+                });
+                
+                item.addEventListener('touchcancel', function() {
+                    this.classList.remove('touch-active');
+                    isTap = false;
+                }, { passive: true });
+            }
+        });
+        
+        // Handle back button with improved touch handling
+        if (navBack) {
+            // Clone to remove existing listeners
+            const cloneBack = navBack.cloneNode(true);
+            if (navBack.parentNode) {
+                navBack.parentNode.replaceChild(cloneBack, navBack);
+            }
+            
+            // Get fresh reference
+            const freshNavBack = document.querySelector('.nav-back');
+            
+            if (freshNavBack) {
+                freshNavBack.setAttribute('data-nav-initialized', 'true');
+                
+                // Create a back navigation handler
+                const handleBackNavigation = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const path = this.getAttribute('data-path');
+                    console.log(`Back button activated, path:`, path);
+                    
+                    // Navigate to the path
+                    navigateTo(path);
+                };
+                
+                // Add click event for all devices
+                freshNavBack.addEventListener('click', handleBackNavigation);
+                
+                // For touch devices, add specific touch handling
+                if (isTouchDevice) {
+                    // Track if this is a tap or a swipe
+                    let touchStartX = 0;
+                    let touchStartY = 0;
+                    let isTap = false;
+                    
+                    freshNavBack.addEventListener('touchstart', function(e) {
+                        touchStartX = e.touches[0].clientX;
+                        touchStartY = e.touches[0].clientY;
+                        isTap = true;
+                        this.classList.add('touch-active');
+                    }, { passive: true });
+                    
+                    freshNavBack.addEventListener('touchmove', function(e) {
+                        // If moved more than a small threshold, it's not a tap
+                        const touchX = e.touches[0].clientX;
+                        const touchY = e.touches[0].clientY;
+                        const deltaX = Math.abs(touchX - touchStartX);
+                        const deltaY = Math.abs(touchY - touchStartY);
+                        
+                        if (deltaX > 10 || deltaY > 10) {
+                            isTap = false;
+                            this.classList.remove('touch-active');
+                        }
+                    }, { passive: true });
+                    
+                    freshNavBack.addEventListener('touchend', function(e) {
+                        this.classList.remove('touch-active');
+                        if (isTap) {
+                            handleBackNavigation.call(this, e);
+                        }
+                    });
+                    
+                    freshNavBack.addEventListener('touchcancel', function() {
+                        this.classList.remove('touch-active');
+                        isTap = false;
+                    }, { passive: true });
+                }
+            }
         }
     }
     

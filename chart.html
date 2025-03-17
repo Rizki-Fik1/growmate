@@ -26,9 +26,8 @@
             console.log('MateChart component loaded');
         });
     </script>
-    <!-- Load scripts after the MateChart component is loaded -->
-    <script src="./scripts/navbar.js" defer></script>
-    <script src="./scripts/daftartodo.js" defer></script>
-    <script src="./scripts/timerange-dropdown.js" defer></script>
+    <!-- Load navbar.js first to ensure proper initialization -->
+    <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/navigation.js"></script>
 </body>
 </html>
