@@ -12,7 +12,7 @@ export const HomeRight = () => {
             <button class="tell-story-btn">Yuk, cerita!</button>
           </div>
 
-          <img class="mate-logo-home" src="assets/img/logo-mate.png" alt="img">
+          <img class="mate-logo-home" src="assets/img/logo-mate2.png" alt="img">
         </div>
       </div>
       

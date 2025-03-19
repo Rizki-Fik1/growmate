@@ -131,12 +131,12 @@ export const ForumContent = () => {
             <div class="content-card forum-post">
                 <div class="post-header">
                     <div class="post-author">
-                        <img src="/api/placeholder/40/40" alt="AndiSulaiman">
+                        <img src="../../assets/img/Profile 1.jpg" alt="AndiSulaiman">
                         <div class="author-info">
-                            <span class="author-name">AndiSulaiman</span>
+                            <span class="author-name">Pria Misterius</span>
                             <div class="post-meta">
                                 <span class="post-date">28 Jan 2025</span>
-                                <span class="post-category kategori-edukasi">Kategori Edukasi</span>
+                                <span class="badge-user">Si Paling Aktif</span>
                             </div>
                         </div>
                     </div>
@@ -175,12 +175,12 @@ export const ForumContent = () => {
             <div class="content-card forum-post">
                 <div class="post-header">
                     <div class="post-author">
-                        <img src="/api/placeholder/40/40" alt="HerryPrastyo">
+                        <img src="../../assets/img/Profile 2.jpg" alt="HerryPrastyo">
                         <div class="author-info">
-                            <span class="author-name">HerryPrastyo</span>
+                            <span class="author-name">Pandji Wahyu</span>
                             <div class="post-meta">
                                 <span class="post-date">17 Jan 2025</span>
-                                <span class="post-category kategori-teknologi">Kategori Teknologi</span>
+                                <span class="badge-user-2">Si Paling Aktif</span>
                             </div>
                         </div>
                     </div>
@@ -218,12 +218,12 @@ export const ForumContent = () => {
             <div class="content-card forum-post">
                 <div class="post-header">
                     <div class="post-author">
-                        <img src="/api/placeholder/40/40" alt="DianaWijaya">
+                        <img src="../../assets/img/Profile 3.jpg" alt="DianaWijaya">
                         <div class="author-info">
-                            <span class="author-name">DianaWijaya</span>
+                            <span class="author-name">Diana Dwi Arini</span>
                             <div class="post-meta">
                                 <span class="post-date">10 Feb 2025</span>
-                                <span class="post-category kategori-politik">Kategori Politik</span>
+                                <span class="badge-user-3">Si Paling Aktif</span>
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@ export const ForumContent = () => {
                 <div class="post-content">
                     <h3>Review kafe baru di Jakarta Selatan</h3>
                     <p>Minggu lalu saya berkunjung ke kafe yang baru buka di daerah Kemang. Suasananya nyaman dan cocok untuk kerja remote. Menu kopi dan makanannya juga enak!</p>
-                    <img src="/api/placeholder/600/300" alt="Cafe Review" class="post-image">
+                    <img src="../../assets/img/Cafe.jpg" alt="Cafe Review" class="post-image">
                 </div>
                 <div class="post-actions-bottom">
                     <div class="post-reactions">
@@ -386,20 +386,20 @@ export const initForumContentEvents = () => {
     });
     
     // Add navigation for post-action-btn
-    const postActionBtn = document.getElementById('post-action-btn');
-    if (postActionBtn) {
-        // Add navigation for post-action-btn
-        postActionBtn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            actionButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to post action button
-            postActionBtn.classList.add('active');
-            
-            // Navigate to forum.html
-            window.location.href = 'forum.html';
-        });
-    }
+        const postActionBtn = document.getElementById('post-action-btn');
+        if (postActionBtn) {
+            // Add navigation for post-action-btn
+            postActionBtn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                actionButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to post action button
+                postActionBtn.classList.add('active');
+                
+                // Navigate to forum.html
+                window.location.href = 'forum.html';
+            });
+        }
     
     // Set active class on the forum question page link when it's clicked
     const forumQuestionBtn = document.getElementById('forum-question-page');

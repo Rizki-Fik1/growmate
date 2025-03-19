@@ -1,0 +1,116 @@
+.follow-card {
+    background-color: #111827;
+    border-radius: 16px;
+    padding: 24px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 48%; /* Half width on larger screens */
+    float: right; /* Position on the right */
+}
+
+.follow-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 10px; /* Space between wrapped elements */
+}
+
+.follow-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.follow-number span {
+    color: #6C94BC;
+    font-size: 24px;
+}
+
+.forum-profiles {
+    display: flex;
+    flex-direction: column;
+}
+
+.forum-profile-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    gap: 10px; /* Space between wrapped elements */
+}
+
+.profile-image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-title {
+    flex-grow: 1;
+    margin-left: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    word-break: break-word; /* Prevent text overflow */
+}
+
+.visit-button {
+    background-color: #10B981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.visit-button:hover {
+    background-color: #059669;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+    .follow-card {
+        width: 100%; /* Full width on medium screens */
+        float: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .follow-card {
+        padding: 16px;
+    }
+    
+    .follow-title {
+        font-size: 20px;
+    }
+    
+    .follow-number span {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .forum-profile-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .profile-title {
+        margin: 8px 0;
+    }
+    
+    .visit-button {
+        align-self: flex-start;
+        width: 100%; /* Full width button on very small screens */
+        text-align: center;
+    }
+}

@@ -1,0 +1,103 @@
+/* BadgeCard.css */
+.badge-card {
+    background-color: #111827;
+    border-radius: 16px;
+    padding: 24px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 50%; /* Half width of CardProfile */
+    float: left; /* Position on the left */
+}
+
+.badge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.badge-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.badge-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge-progress span {
+    font-size: 14px;
+    color: #9CA3AF;
+}
+
+.badge-progress .progress-bar {
+    width: 120px;
+    height: 8px;
+    background-color: #374151;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.badge-progress .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10B981 0%, #34D399 100%);
+    border-radius: 4px;
+}
+
+.badge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.badge-item {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.badge-item-lock {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+    filter: brightness(50%)
+}
+
+.badge-item:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    .badge-card {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .badge-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .badge-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .badge-progress {
+        width: 100%;
+    }
+    
+    .badge-progress .progress-bar {
+        width: 100%;
+    }
+}

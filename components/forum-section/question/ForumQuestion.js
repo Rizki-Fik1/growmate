@@ -234,7 +234,7 @@ export const ForumQuestion = () => {
                                 <span class="author-name">P</span>
                                 <div class="post-meta">
                                     <span class="post-date">27 Jan 2025</span>
-                                    <span class="post-category kategori-politik">Kategori Politik</span>
+                                    <span class="badge-user">Si Paling Aktif</span>
                                 </div>
                             </div>
                         </div>

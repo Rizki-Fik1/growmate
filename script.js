@@ -191,21 +191,6 @@ function addEventListeners() {
             }
         });
     });
-    
-    // Event listener untuk tombol Sign Up utama
-    const signupBtn = document.querySelector('.signup-btn');
-    if (signupBtn) {
-        signupBtn.addEventListener('click', () => {
-            // Navigasi ke bagian CTA
-            const ctaSection = document.querySelector('.cta-section');
-            if (ctaSection) {
-                window.scrollTo({
-                    top: ctaSection.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -303,3 +288,48 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+
+  function toggleFaq(element) {
+    // Check if this item is already active
+    const isActive = element.classList.contains('active');
+    
+    // Close all FAQs first
+    const allFaqs = document.querySelectorAll('.faq-item');
+    allFaqs.forEach(faq => {
+        faq.classList.remove('active');
+        
+        // Get the answer element that follows this FAQ item
+        const answer = faq.nextElementSibling;
+        if (answer && answer.classList.contains('faq-answer')) {
+            answer.classList.remove('active');
+        }
+    });
+    
+    // If clicked item wasn't already active, open it
+    if (!isActive) {
+        element.classList.add('active');
+        
+        // Get the answer element that follows this FAQ item
+        const answer = element.nextElementSibling;
+        if (answer && answer.classList.contains('faq-answer')) {
+            answer.classList.add('active');
+        }
+    }
+}
+
+// Initialize FAQ click handlers
+document.addEventListener('DOMContentLoaded', function() {
+    // Close all answers initially
+    const answers = document.querySelectorAll('.faq-answer');
+    answers.forEach(answer => {
+        answer.classList.remove('active');
+    });
+    
+    // Add click event listeners to all FAQ items
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        item.addEventListener('click', function() {
+            toggleFaq(this);
+        });
+    });
+});

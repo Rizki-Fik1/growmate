@@ -18,9 +18,9 @@ export const HomeHeader = () => {
                             <path d="M15.02 19.06C15.02 20.71 13.67 22.06 12.02 22.06C11.2 22.06 10.44 21.72 9.90002 21.18C9.36002 20.64 9.02002 19.88 9.02002 19.06" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"/>
                         </svg>
                     </button>
-                    <div class="profile-avatar">
-                        <img src="assets/img/profile-avatar.png" alt="Profile" class="avatar-img">
-                    </div>
+                    <a href="profile.html" class="profile-avatar" id="profile-avatar">
+                        <img src="../../assets/img/profile-dummy 1.png" alt="Profile" class="avatar-img">
+                    </a>
                 </div>
             </div>
             
@@ -36,4 +36,4 @@ export const HomeHeader = () => {
             </div>
         </header>
     `;
-}; 
+};

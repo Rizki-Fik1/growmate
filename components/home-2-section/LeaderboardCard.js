@@ -17,7 +17,7 @@ export const LeaderboardCard = () => {
                     <div class="rank rank-2">
                         <div class="rank-number">2</div>
                         <div class="rank-avatar">
-                            <img src="assets/img/avatar-capt-rell.png" alt="Capt. Rell" class="avatar-img">
+                            <img src="../../assets/img/profile-dummy 1.png" alt="Capt. Rell" class="avatar-img">
                         </div>
                         <div class="rank-name">Capt. Rell</div>
                     </div>
@@ -31,7 +31,7 @@ export const LeaderboardCard = () => {
                         </div>
                         <div class="rank-number">1</div>
                         <div class="rank-avatar">
-                            <img src="assets/img/avatar-el-pape.png" alt="El Pape" class="avatar-img">
+                            <img src="../../assets/img/profile-dummy 1.png" alt="El Pape" class="avatar-img">
                         </div>
                         <div class="rank-name">El Pape</div>
                     </div>
@@ -39,7 +39,7 @@ export const LeaderboardCard = () => {
                     <div class="rank rank-3">
                         <div class="rank-number">3</div>
                         <div class="rank-avatar">
-                            <img src="assets/img/avatar-sigmafan.png" alt="Sigmafan" class="avatar-img">
+                            <img src="../../assets/img/profile-dummy 1.png" alt="Sigmafan" class="avatar-img">
                         </div>
                         <div class="rank-name">Sigmafan</div>
                     </div>
@@ -50,7 +50,7 @@ export const LeaderboardCard = () => {
                         <div class="rank-position">4</div>
                         <div class="rank-user">
                             <div class="rank-avatar small">
-                                <img src="assets/img/avatar-restu33.png" alt="Restu33" class="avatar-img">
+                                <img src="../../assets/img/profile-dummy 1.png" alt="Restu33" class="avatar-img">
                             </div>
                             <div class="rank-name">Restu33</div>
                         </div>
@@ -61,7 +61,7 @@ export const LeaderboardCard = () => {
                         <div class="rank-position">5</div>
                         <div class="rank-user">
                             <div class="rank-avatar small">
-                                <img src="assets/img/avatar-nopalby.png" alt="NopalBy" class="avatar-img">
+                                <img src="../../assets/img/profile-dummy 1.png" alt="NopalBy" class="avatar-img">
                             </div>
                             <div class="rank-name">NopalBy</div>
                         </div>
@@ -72,7 +72,7 @@ export const LeaderboardCard = () => {
                         <div class="rank-position">6</div>
                         <div class="rank-user">
                             <div class="rank-avatar small">
-                                <img src="assets/img/avatar-henry-sm.png" alt="Henry_SM" class="avatar-img">
+                                <img src="../../assets/img/profile-dummy 1.png" alt="Henry_SM" class="avatar-img">
                             </div>
                             <div class="rank-name">Henry_SM</div>
                         </div>
@@ -83,7 +83,7 @@ export const LeaderboardCard = () => {
                         <div class="rank-position">7</div>
                         <div class="rank-user">
                             <div class="rank-avatar small">
-                                <img src="assets/img/avatar-restu33.png" alt="JayaGaming" class="avatar-img">
+                                <img src="../../assets/img/profile-dummy 1.png" alt="JayaGaming" class="avatar-img">
                             </div>
                             <div class="rank-name">JayaGaming</div>
                         </div>
@@ -94,7 +94,7 @@ export const LeaderboardCard = () => {
                         <div class="rank-position">8</div>
                         <div class="rank-user">
                             <div class="rank-avatar small">
-                                <img src="assets/img/avatar-nopalby.png" alt="Rizky_Pro" class="avatar-img">
+                                <img src="../../assets/img/profile-dummy 1.png" alt="Rizky_Pro" class="avatar-img">
                             </div>
                             <div class="rank-name">Rizky_Pro</div>
                         </div>
@@ -105,7 +105,7 @@ export const LeaderboardCard = () => {
                         <div class="rank-position">9</div>
                         <div class="rank-user">
                             <div class="rank-avatar small">
-                                <img src="assets/img/avatar-henry-sm.png" alt="Budi_Santoso" class="avatar-img">
+                                <img src="../../assets/img/profile-dummy 1.png" alt="Budi_Santoso" class="avatar-img">
                             </div>
                             <div class="rank-name">Budi_Santoso</div>
                         </div>

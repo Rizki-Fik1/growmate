@@ -16,24 +16,16 @@ export const SidebarAnswer = () => {
                         <h3 class="category-heading">Kategori Forum <i class="fas fa-chevron-down category-toggle"></i></h3>
                         <div class="categories-container">
                             <div class="forum-category">
-                                <img src="https://via.placeholder.com/32" alt="Harian Anak Kos">
+                                <img src="../../assets/img/Komunitas.jpg" alt="Harian Anak Kos">
                                 <span>Harian Anak Kos</span>
                             </div>
                             <div class="forum-category">
-                                <img src="https://via.placeholder.com/32" alt="Secangkir Kopi">
+                                <img src="../../assets/img/Kopi.jpg" alt="Secangkir Kopi">
                                 <span>Secangkir Kopi</span>
                             </div>
                             <div class="forum-category">
-                                <img src="https://via.placeholder.com/32" alt="Sharing Experience">
+                                <img src="../../assets/img/Komunitas Buku.jpg" alt="Sharing Experience">
                                 <span>Sharing Experience</span>
-                            </div>
-                            <div class="forum-category">
-                                <img src="https://via.placeholder.com/32" alt="Cari Teman Belajar">
-                                <span>Cari Teman Belajar</span>
-                            </div>
-                            <div class="forum-category">
-                                <img src="https://via.placeholder.com/32" alt="Forum Motivasi">
-                                <span>Forum Motivasi</span>
                             </div>
                         </div>
                     </div>
@@ -44,17 +36,17 @@ export const SidebarAnswer = () => {
                     <h3 class="friends-heading">Teman-teman mu <i class="fas fa-chevron-down friends-toggle"></i></h3>
                     <div class="friends-container">
                         <div class="friend-item">
-                            <img src="https://via.placeholder.com/32" alt="Sigmaffan">
+                            <img src="../../assets/img/Profile 4.jpg" alt="Sigmaffan">
                             <span>Sigmaffan</span>
                             <div class="status online"></div>
                         </div>
                         <div class="friend-item">
-                            <img src="https://via.placeholder.com/32" alt="Fikoajaa9">
+                            <img src="../../assets/img/Profile 5.jpg" alt="Fikoajaa9">
                             <span>Fikoajaa9</span>
                             <div class="status offline"></div>
                         </div>
                         <div class="friend-item">
-                            <img src="https://via.placeholder.com/32" alt="KingAhmed">
+                            <img src="../../assets/img/Profile 6.jpg" alt="KingAhmed">
                             <span>KingAhmed</span>
                             <div class="status online"></div>
                         </div>

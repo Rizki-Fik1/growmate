@@ -95,3 +95,61 @@
     cursor: pointer;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
+/* FAQ Answer Styles */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    background-color: #030C19;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    margin-top: -5px;
+    opacity: 0;
+    padding: 0 20px;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 15px 20px;
+}
+
+.faq-answer p {
+    color: #F8F8F8;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.faq-answer span {
+    font-weight: bold;
+}
+
+.faq-answer ul {
+    color: #F8F8F8;
+    font-size: 14px;
+    margin-top: 8px;
+    padding-left: 20px;
+    text-align: left;   
+}
+
+.faq-answer li {
+    margin-bottom: 5px;
+}
+
+/* Transition effect for the toggle icon */
+.faq-toggle {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+/* Change background of active FAQ item */
+.faq-item.active {
+    background-color: #1FA970;
+}

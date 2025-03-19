@@ -1,12 +1,12 @@
 import { Navbar } from '../components/navbar/Navbar.js';
 import { NewsHeader } from '../components/news-section/NewsHeader.js';
 import { ArticleDetail } from '../components/detail-section/ArticleDetail.js';
-
+    
 export const NewsDetail = (articleId) => {
     // Dummy article data - in real app, this would be fetched based on articleId
     const article = {
         id: articleId,
-        title: "Pizza enak enak enak enak enak",
+        title: "Pizza enak menjadi industri meyakinkan",
         author: "Mass.muhh_",
         time: "10 jam lalu",
         content: `

@@ -86,9 +86,7 @@
     max-height: 500px;
     object-fit: cover;
     border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.3s ease;
-    transform: scale(1.02);
+    /* Hapus opacity: 0 dan transform */
 }
 
 .article-main-image.loaded {

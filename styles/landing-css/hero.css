@@ -58,7 +58,7 @@
 
 .hero-section .buttons {
     display: flex;
-    gap: 2rem;
+    gap: 60px;
     justify-content: center;
 }
 

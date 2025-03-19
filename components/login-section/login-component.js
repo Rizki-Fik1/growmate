@@ -3,6 +3,20 @@ export const LoginComponent = () => {
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
     const loginButton = document.querySelector(".button-input");
+    
+    // Load SweetAlert2 from CDN
+    if (!document.getElementById("sweetalert2-script")) {
+      const script = document.createElement("script");
+      script.id = "sweetalert2-script";
+      script.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+      document.head.appendChild(script);
+      
+      // Optional - load SweetAlert2 CSS theme (you can change this to another theme if preferred)
+      const styleLink = document.createElement("link");
+      styleLink.rel = "stylesheet";
+      styleLink.href = "https://cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal@5/minimal.css";
+      document.head.appendChild(styleLink);
+    }
 
     loginButton.addEventListener("click", (event) => {
       event.preventDefault();
@@ -11,7 +25,24 @@ export const LoginComponent = () => {
       const password = passwordInput.value.trim();
 
       if (username === "" || password === "") {
-        alert("Username dan Password harus diisi!");
+        // Check if SweetAlert2 is loaded
+        if (window.Swal) {
+          Swal.fire({
+            title: 'Perhatian!',
+            text: 'Username dan Password harus diisi!',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#3085d6',
+            customClass: {
+              popup: 'swal-custom-popup',
+              title: 'swal-custom-title',
+              content: 'swal-custom-content'
+            }
+          });
+        } else {
+          // Fallback to regular alert if SweetAlert2 hasn't loaded yet
+          alert("Username dan Password harus diisi!");
+        }
       } else {
         // Tampilkan preloader
         const preloader = document.getElementById("preloader");

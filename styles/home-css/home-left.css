@@ -22,8 +22,8 @@
 
 .chart-home-icon-one {
   position: absolute;
-  left: 50px;
-  top: 60px;
+  left: 40px;
+  top: 10px;
   color: #00FF95;
   width: 30px;
   height: 30px;
@@ -35,7 +35,7 @@
 .chart-home-icon-two {
   position: absolute;
   right: 200px;
-  top: 10px;
+  top: 20px;
   color: #00FF95;
   width: 30px;
   height: 30px;
@@ -59,7 +59,7 @@
 .news-home-icon {
   position: absolute;
   right: 120px;
-  bottom: 90px;
+  bottom: 120px;
   color: #00FF95;
   width: 30px;
   height: 30px;

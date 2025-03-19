@@ -25,6 +25,7 @@ body {
     flex-direction: column;
     padding: 0px 30px; /* Increased horizontal padding */
     position: relative; /* Add position relative */
+    margin-left: 80px;
 }
 
 /* Header wrapper */
